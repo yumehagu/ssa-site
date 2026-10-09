@@ -246,7 +246,8 @@ section{padding-block:var(--sec)}
 /* 第14版：写真を法人HPと同じ小さな丸（72px）にして名前の横へ。PCも1列にして本文の上に置く */
 .coach-grid{grid-template-columns:1fr;gap:20px}
 .person{display:flex;align-items:center;gap:16px}
-.person img{width:72px;height:72px;aspect-ratio:1;border-radius:50%;object-position:center;flex:none;background:#fff;border:1px solid var(--rule)}
+/* 2026-10-09：写真はジョアン氏と同じ縦長（64×80・角丸6px）にそろえる */
+.person img{width:64px;height:80px;aspect-ratio:auto;border-radius:6px;object-fit:cover;object-position:center top;flex:none}
 /* 第15版：スマホは下部に申込ボタンが常にあるため、ページ途中の「体験に申し込む」ボタンは出さない */
 .sp-br{display:none}
 @media (max-width:760px){
@@ -532,7 +533,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     </div>
     <div class="coach-grid">
       <div class="person">
-        <img src="img/coach-sq.jpg" alt="スクールマスター 菊地勇太" loading="lazy">
+        <img src="img/coach.jpg" alt="スクールマスター 菊地勇太" loading="lazy">
         <div class="meta">
           <p class="role-name">スクールマスター</p>
           <p class="name">菊地 勇太</p>
