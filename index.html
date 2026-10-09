@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>サッカースクールあきた｜秋田市・大仙市のサッカースクール（小2〜中3）</title>
+<meta name="description" content="秋田市・大仙市で、小学2年生〜中学3年生を対象に、クーバー・コーチングのメソッドで個人の技術と判断力を育てるサッカースクールです。所属チームと両立できます。無料体験受付中。">
+<meta property="og:title" content="サッカースクールあきた｜昨日の自分を、超えていく。">
+<meta property="og:description" content="秋田市・大仙市｜小2〜中3｜所属チームと両立できるサッカースクール。無料体験受付中。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ssa.yumehagu.net/">
+<meta property="og:image" content="https://ssa.yumehagu.net/img/p33.jpg">
+<link rel="canonical" href="https://ssa.yumehagu.net/">
+<link rel="icon" href="img/ssa-logo.png">
+<script src="data/classes.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: 写真と深緑で始まり、白〜薄緑の明るい面で読ませ、深緑で締める。日本語はNoto Sans JPに統一、英字ラベルと数字だけBarlow Condensed。単一ルック */
+:root{
+  color-scheme: light;
+  /* color */
+  --pitch:#10261a;     /* 深緑：ブランド・大きな背景 */
+  --pitch-2:#1a3726;
+  --turf:#4e9a26;      /* 明るい緑：番号・チェック・受付中 */
+  --kick:#e8600a;      /* オレンジ：CTA・英字ラベル・限られた強調 */
+  --kick-dark:#c95205;
+  --white:#ffffff;
+  --paper:#f7f9f5;     /* オフホワイト */
+  --tint:#edf2ea;      /* 薄い緑グレー：区切りの面 */
+  --ink:#17251c;
+  --muted:#55655a;
+  --note:#738278;
+  --rule:#dce4d8;
+  --on-dark:#ffffff;
+  --on-dark-2:#c8d6cb;
+  --on-dark-3:#93ab98;
+  --line-dark:rgba(255,255,255,.14);
+  /* type */
+  --jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --en:"Barlow Condensed","Arial Narrow",sans-serif;
+  --fs-h1:clamp(2.35rem,6.2vw,4.1rem);
+  --fs-h2:clamp(1.45rem,2.9vw,2.05rem);
+  --fs-h3:1.125rem;
+  --fs-body:1rem;
+  --fs-note:.84rem;
+  --lh-body:1.9;
+  /* space */
+  --wrap:1120px;
+  --gutter:clamp(16px,4vw,40px);
+  --sec:96px;          /* セクション上下 */
+  --label-h2:12px;     /* 英字ラベル→H2 */
+  --h2-lead:16px;      /* H2→導入文 */
+  --head-body:40px;    /* 見出しまとまり→コンテンツ */
+  --gap:20px;          /* カード・項目間 */
+  /* ui */
+  --radius:10px;
+  --btn-h:52px;
+}
+@media (max-width:760px){
+  :root{--sec:76px;--label-h2:10px;--h2-lead:12px;--head-body:30px;--gap:14px;--lh-body:1.75;--btn-h:48px;--fs-body:.9375rem}
+  /* 第6版：文章量の多いセクションの前後だけ余白を詰める */
+  #about{padding-bottom:52px}
+  .values{padding-bottom:60px}
+  #coach{padding-top:60px;padding-bottom:60px}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--jp);font-size:var(--fs-body);font-weight:400;line-height:var(--lh-body);-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 0}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--kick);outline-offset:3px;border-radius:4px}
+h1,h2,h3,p,ul,dl,dd,figure,blockquote{margin:0}
+h1,h2,h3{text-wrap:balance}
+h1,h2,h3,.sub,.catch,.roles-close,.values-close,.checks li,.faq summary,.final p,.lead{word-break:auto-phrase}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+section{padding-block:var(--sec)}
+[id]{scroll-margin-top:72px}
+
+/* ---- type hierarchy ---- */
+.label{font-family:var(--en);font-weight:600;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--kick-dark);line-height:1}
+.h2{font-weight:800;font-size:var(--fs-h2);line-height:1.45;letter-spacing:.02em;margin-top:var(--label-h2)}
+.lead{margin-top:var(--h2-lead);color:var(--muted);max-width:38em}
+.sec-head{margin-bottom:var(--head-body)}
+.h3{font-weight:700;font-size:var(--fs-h3);line-height:1.5}
+.note{font-size:var(--fs-note);color:var(--note);line-height:1.7}
+.on-dark .label{color:#ff9d5c}
+.on-dark .h2{color:var(--on-dark)}
+.on-dark .lead{color:var(--on-dark-2)}
+
+/* ---- buttons ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:var(--btn-h);padding:0 24px;border-radius:var(--radius);font-weight:700;font-size:1rem;line-height:1.3;text-decoration:none;border:1.5px solid transparent;transition:background-color .15s,border-color .15s,color .15s}
+.btn-primary{background:var(--kick);color:#fff}
+.btn-primary::after{content:"→";font-weight:500}
+.btn-primary:hover{background:var(--kick-dark)}
+.btn-secondary{background:transparent;border-color:currentColor;color:var(--ink)}
+.btn-secondary:hover{background:rgba(0,0,0,.04)}
+.on-dark .btn-secondary,.hero .btn-secondary,.final .btn-secondary{color:#fff}
+.on-dark .btn-secondary:hover,.hero .btn-secondary:hover{background:rgba(255,255,255,.08)}
+.tlink{font-weight:700;color:var(--kick-dark);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.tlink::after{content:" →";text-decoration:none}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---- demo note & header ---- */
+.demo-note{background:var(--ink);color:#cfdccf;font-size:.75rem;text-align:center;padding:6px 16px;line-height:1.5}
+.demo-note b{color:#fff}
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.hdr .wrap{display:flex;align-items:center;gap:24px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand img{width:42px;height:42px}
+.brand span{font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.25}
+.brand small{display:block;font-family:var(--en);font-weight:600;font-size:.7rem;letter-spacing:.16em;color:var(--note)}
+.nav{display:flex;gap:24px;margin-left:auto;font-size:.88rem;font-weight:500}
+.nav a{text-decoration:none;padding-block:6px;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--turf)}
+.hdr .btn{min-height:40px;padding:0 16px;font-size:.88rem}
+.hdr .btn::after{content:none}
+@media (max-width:900px){.nav{display:none}.hdr .btn{margin-left:auto}}
+.hdr .btn{white-space:nowrap}
+/* 第11版：スマホは上部の申込ボタンをメニューに（申込は下部の固定ボタンから） */
+.menu-btn{display:none}
+.mnav[hidden]{display:none}
+@media (max-width:900px){
+  .hdr .btn{display:none}
+  .menu-btn{display:inline-flex;align-items:center;gap:8px;margin-left:auto;min-height:40px;padding:0 14px;border:1.5px solid var(--ink);border-radius:var(--radius);background:transparent;color:var(--ink);font:inherit;font-weight:700;font-size:.88rem;cursor:pointer}
+  .menu-btn .bars{font-size:1.1rem;line-height:1}
+  .mnav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--rule);box-shadow:0 10px 24px rgba(0,0,0,.08)}
+  .mnav a{display:block;padding:14px var(--gutter);border-top:1px solid var(--rule);text-decoration:none;font-weight:500}
+}
+@media (min-width:901px){.mnav{display:none!important}}
+/* 第11版：iPhoneのSafariは word-break:auto-phrase が効かないため、改行してよい位置を自分で決める */
+.nw{display:inline-block}
+@media (max-width:420px){
+  .hdr .wrap{gap:10px}
+  .brand{gap:8px}
+  .brand img{width:34px;height:34px}
+  .brand span{font-size:.84rem;letter-spacing:.02em}
+  .brand small{font-size:.58rem;letter-spacing:.1em}
+  .hdr .btn{padding:0 12px;font-size:.8rem;min-height:38px}
+}
+
+/* ---- hero ---- */
+.hero{position:relative;color:#fff;background:var(--pitch);overflow:hidden;padding-block:0}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;opacity:.55}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,38,26,.92) 0%,rgba(16,38,26,.6) 55%,rgba(16,38,26,.2) 100%)}
+.hero-body{position:relative;z-index:1;padding-block:clamp(56px,10vw,120px) clamp(36px,5vw,56px);display:grid;gap:24px;justify-items:start}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:3px 12px;font-size:.84rem;line-height:1.6}
+.hero h1{font-weight:900;font-size:var(--fs-h1);line-height:1.28;letter-spacing:.03em}
+.hero h1 em{font-style:normal;color:#ff9d5c}
+.hero .sub{font-size:1.06rem;line-height:1.85;color:#e4ede5;max-width:30em}
+.facts{position:relative;z-index:1;border-top:1px solid var(--line-dark);background:rgba(10,26,17,.62)}
+.facts dl{display:grid;grid-template-columns:repeat(3,1fr)}
+.fact{padding:16px 16px;border-left:1px solid var(--line-dark);min-width:0}
+.fact:first-child{border-left:0;padding-left:0}
+.fact dt{font-size:.74rem;color:var(--on-dark-3);letter-spacing:.08em}
+.fact dd{font-weight:700;font-size:1rem;line-height:1.45}
+.fact .n{font-family:var(--en);font-size:1.5rem;font-weight:700;margin-right:2px}
+@media (max-width:760px){
+  .hero-body{gap:16px;padding-block:40px 28px}
+  .tags{gap:6px}
+  .tags span{font-size:.74rem;padding:2px 10px}
+  /* 第12版：1行目（24字）が1行に収まるよう、画面幅に合わせて文字を少しだけ小さくする */
+  .hero .sub{font-size:min(.95rem, calc((100vw - 32px) / 24.6));line-height:1.75}
+  .hero .ctas{gap:10px;width:100%}
+  .hero .btn{min-height:46px;flex:1 1 auto}
+  .facts dl{grid-template-columns:1fr 1fr}
+  .fact{border-left:0;padding:10px 0;border-top:1px solid rgba(255,255,255,.1)}
+  .fact:nth-child(-n+2){border-top:0}
+  .fact:nth-child(3){grid-column:1 / -1}
+  .fact .n{font-size:1.25rem}
+  .fact dd{font-size:.92rem}
+}
+
+/* ---- about ---- */
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.role{background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);padding:28px 26px;min-width:0}
+.role.ssa{border-color:var(--pitch)}
+.role .who{font-size:var(--fs-note);font-weight:700;letter-spacing:.06em;color:var(--muted)}
+.role.ssa .who{color:var(--pitch)}
+.role .h3{margin-top:8px}
+.role p.t{margin-top:8px;color:var(--muted)}
+.roles-close{margin-top:28px;font-weight:700}
+@media (max-width:760px){.roles{grid-template-columns:1fr}.role{padding:22px 20px}}
+
+/* ---- values ---- */
+/* 第10版：3つそれぞれに写真を付けたカード形式 */
+.values-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px);align-items:start}
+.value{min-width:0}
+.value-photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:var(--tint)}
+.value-photo img{width:100%;height:100%;object-fit:cover}
+.value-body{padding-top:16px}
+.value .no{font-family:var(--en);font-weight:700;font-size:1.5rem;line-height:1.1;color:var(--turf);margin-bottom:4px}
+.value .catch{margin-top:4px;font-weight:500}
+.value p.t{margin-top:8px;color:var(--muted);font-size:.95rem;line-height:1.85}
+.values-close{margin-top:36px;padding-top:24px;border-top:1px solid var(--rule);font-weight:700;font-size:1.06rem;line-height:1.8}
+/* 第13版：1行目（23字）が1行に収まるよう、スマホでは画面幅に合わせて文字を少し小さくする */
+@media (max-width:760px){.values-close{font-size:min(1rem, calc((100vw - 32px) / 25))}}
+@media (max-width:860px){.values-cards{grid-template-columns:1fr;gap:28px}.value-photo{aspect-ratio:16/9}}
+@media (max-width:760px){.value-body{padding-top:12px}.value .no{font-size:1.3rem}.values-close{margin-top:28px}}
+
+/* 第10版：おすすめ欄に写真 */
+.fit-grid{display:grid;grid-template-columns:6fr 5fr;gap:clamp(28px,5vw,64px);align-items:center}
+.fit-photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:3/2}
+.fit-photo img{width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){.fit-grid{grid-template-columns:1fr}.fit-photo{order:-1;aspect-ratio:16/9}}
+
+/* ---- coerver band ---- */
+.coerver{background:var(--tint);padding-block:32px}
+.coerver .wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.coerver img{width:136px;height:auto;flex-shrink:0;background:#fff;border-radius:8px;padding:8px}
+.coerver .txt{flex:1 1 300px;min-width:0;display:grid;gap:4px}
+.coerver .name{font-family:var(--en);font-weight:700;font-size:1.25rem;letter-spacing:.04em;line-height:1.3}
+.coerver p{color:var(--muted);font-size:.95rem}
+
+/* ---- coach ---- */
+.coach-grid{display:grid;grid-template-columns:240px 1fr;gap:clamp(24px,5vw,56px);align-items:start}
+.person img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 12%;border-radius:var(--radius);background:var(--paper)}
+.person .meta{margin-top:14px}
+.person .role-name{font-size:var(--fs-note);color:var(--muted);letter-spacing:.06em}
+.person .name{font-size:1.45rem;font-weight:800;letter-spacing:.1em;line-height:1.4}
+.person .name-en{font-family:var(--en);font-weight:600;font-size:.8rem;letter-spacing:.16em;color:var(--note)}
+.coach-body{display:grid;gap:16px;min-width:0}
+.coach-body > p{max-width:40em}
+.history{margin-top:8px;padding-top:18px;border-top:1px solid var(--rule)}
+.history .h{font-size:var(--fs-note);font-weight:700;color:var(--muted);letter-spacing:.06em;margin-bottom:6px}
+.history ul{padding-left:1.1em;display:grid;gap:4px;font-size:.95rem}
+.joan{margin-top:12px;background:var(--pitch);color:var(--on-dark-2);border-radius:var(--radius);padding:20px 22px;display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start}
+.joan img{width:64px;height:80px;object-fit:cover;object-position:center top;border-radius:6px}
+.joan-body{min-width:0}
+.joan blockquote p{font-size:.95rem;color:#fff;line-height:1.8}
+.joan figcaption{margin-top:8px;font-size:var(--fs-note);line-height:1.6}
+.joan figcaption b{display:block;color:#fff;font-weight:700}
+.joan details{margin-top:10px;font-size:var(--fs-note)}
+.joan summary{cursor:pointer;color:#ff9d5c;font-weight:700}
+.joan details p{margin-top:8px;line-height:1.8}
+.joan .es{font-style:italic;color:var(--on-dark-3)}
+@media (max-width:760px){
+  .coach-grid{grid-template-columns:1fr;gap:20px}
+  .person{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:end}
+  .person .meta{margin-top:0}
+  .person .name{font-size:1.5rem}
+}
+/* 第14版：写真を法人HPと同じ小さな丸（72px）にして名前の横へ。PCも1列にして本文の上に置く */
+.coach-grid{grid-template-columns:1fr;gap:20px}
+.person{display:flex;align-items:center;gap:16px}
+.person img{width:72px;height:72px;aspect-ratio:1;border-radius:50%;object-position:center;flex:none;background:#fff;border:1px solid var(--rule)}
+/* 第15版：スマホは下部に申込ボタンが常にあるため、ページ途中の「体験に申し込む」ボタンは出さない */
+.sp-br{display:none}
+@media (max-width:760px){
+  .hero .btn-primary,.sec-cta,.final .ctas{display:none}
+  .sp-br{display:inline}
+}
+.person .meta{margin-top:0}
+.person .name{font-size:1.35rem}
+
+/* ---- classes ---- */
+.board-sec{background:var(--pitch);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:16px;font-size:var(--fs-note);color:var(--on-dark-2)}
+.legend .asof{flex-basis:100%}
+.asof{font-family:var(--en);font-weight:600;letter-spacing:.04em;color:#fff;font-size:.95rem}
+.st{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:2px 9px;font-size:.82rem;font-weight:700;line-height:1.6;white-space:nowrap;border:1px solid transparent}
+.st .sym{font-family:var(--en);font-size:1.05rem;line-height:1}
+.st.ok{background:var(--turf);color:#fff}
+.st.few{background:var(--kick);color:#fff}
+.st.full{background:#56645b;color:#fff}
+.board-scroll{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--line-dark)}
+.board{width:100%;min-width:640px;border-collapse:collapse;background:var(--pitch-2);font-variant-numeric:tabular-nums}
+.board th,.board td{padding:13px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:middle}
+.board thead th{font-family:var(--en);font-weight:600;letter-spacing:.12em;font-size:.82rem;color:var(--on-dark-3);background:rgba(0,0,0,.18)}
+.board tbody th{font-weight:700;white-space:nowrap}
+.board tbody th small{display:block;font-weight:400;font-size:.78rem;color:var(--on-dark-3)}
+.board .venue th{background:rgba(0,0,0,.26);font-size:.84rem;font-weight:500;color:var(--on-dark-2);padding-block:8px}
+.board .venue b{color:#fff;font-weight:700;margin-right:8px}
+.cell-time{display:block;margin-top:4px;font-family:var(--en);font-size:.95rem;color:var(--on-dark-2);letter-spacing:.03em}
+.na{color:rgba(255,255,255,.22);font-family:var(--en)}
+.cls-cards{display:none}
+.cls-group{display:grid;gap:10px}
+.cls-group + .cls-group{margin-top:24px}
+.cls-venue{font-size:.84rem;color:var(--on-dark-2);line-height:1.6}
+.cls-venue b{color:#fff;margin-right:6px}
+.cls-card{background:var(--pitch-2);border:1px solid var(--line-dark);border-radius:var(--radius);padding:14px 16px}
+.cls-card .h3{font-size:1.02rem}
+.cls-card .h3 small{font-weight:400;font-size:.8rem;color:var(--on-dark-3);margin-left:8px}
+.cls-days{list-style:none;padding:0;margin-top:8px;display:grid}
+.cls-days li{display:grid;grid-template-columns:1.8em 1fr auto;gap:10px;align-items:center;border-top:1px solid rgba(255,255,255,.07);padding-block:8px}
+.cls-days .d{font-weight:700}
+.cls-days .t{font-family:var(--en);font-size:1.02rem;color:var(--on-dark-2);line-height:1.3}
+.cls-days .t small{display:block;font-family:var(--jp);font-size:.72rem;color:var(--on-dark-3)}
+/* 第8版：PCもスマホと同じカード形式（会場ごと → クラスごと）。曜日の列はやめる */
+.cls-cards{display:block}
+.cls-group{gap:12px}
+.cls-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}
+.cls-card{padding:16px 18px 10px}
+.cls-days{margin-top:6px}
+.cls-days li{grid-template-columns:1.6em 1fr auto;gap:12px;padding-block:10px}
+.cls-days .st{font-size:.74rem;padding:1px 8px}
+.cls-days .st .sym{font-size:.95rem}
+@media (max-width:900px){.cls-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.cls-grid{grid-template-columns:1fr}}
+.fees{margin-top:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-dark);border-radius:var(--radius);overflow:hidden}
+.fee{background:var(--pitch-2);padding:16px 18px;min-width:0}
+.fee .l{font-size:.8rem;color:var(--on-dark-3)}
+.fee .v{font-family:var(--en);font-weight:700;font-size:1.7rem;line-height:1.25}
+.fee .v small{font-family:var(--jp);font-size:.78rem;font-weight:500;margin-left:2px}
+.fee .s{font-size:.76rem;color:var(--on-dark-2);line-height:1.5}
+.board-notes{margin-top:14px;display:grid;gap:2px;font-size:var(--fs-note);color:var(--on-dark-3);line-height:1.7}
+.sec-cta{margin-top:32px}
+@media (max-width:760px){.fees{grid-template-columns:1fr 1fr}.fee{padding:12px 14px}.fee .v{font-size:1.4rem}}
+
+/* ---- for you ---- */
+.checks{list-style:none;padding:0;display:grid;gap:14px;max-width:40em}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-weight:500;font-size:1.04rem;line-height:1.7;min-width:0}
+.checks li::before{content:"";flex:0 0 20px;height:20px;margin-top:.25em;border-radius:50%;background:var(--turf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E") center/14px no-repeat}
+.checks-close{margin-top:24px;color:var(--muted)}
+
+/* ---- voices ---- */
+.tint{background:var(--tint)}
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,36px)}
+.voice{border-top:2px solid var(--pitch);padding-top:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.voice .angle{font-size:var(--fs-note);font-weight:700;color:var(--pitch);letter-spacing:.04em}
+.voice .who{margin-top:auto}
+.survey{margin-top:28px}
+.survey summary{cursor:pointer;display:inline-block}
+.survey-grid{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.survey-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+/* 第8版：アンケートをタップで拡大 */
+.survey-grid img{cursor:zoom-in}
+.zoom{position:fixed;inset:0;z-index:50;background:rgba(10,20,14,.92);display:grid;place-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px));cursor:zoom-out}
+.zoom img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;background:#fff}
+.zoom .close{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;color:#fff;font-size:.9rem;font-weight:700;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:4px 14px;background:transparent}
+.survey-grid img{width:100%;border-radius:6px;border:1px solid var(--rule)}
+.media-line{margin-top:28px;font-size:.8rem;color:var(--note);line-height:1.7}
+.media-line b{font-weight:500;color:var(--muted);margin-right:6px}
+@media (max-width:760px){.voices{grid-template-columns:1fr}}
+
+/* ---- flow ---- */
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);counter-reset:step}
+.step{position:relative;min-width:0}
+.step .dot{position:relative;z-index:1;width:44px;height:44px;border-radius:50%;border:2px solid var(--turf);background:var(--white);display:grid;place-items:center;font-family:var(--en);font-weight:700;font-size:1.1rem;color:var(--turf)}
+.step:first-child .dot{background:var(--turf);color:#fff}
+.step:not(:last-child)::before{content:"";position:absolute;top:21px;left:44px;right:calc(-1 * var(--gap));height:2px;background:var(--rule)}
+.step .h3{margin-top:14px}
+.step p{margin-top:6px;color:var(--muted);font-size:.95rem;line-height:1.8}
+.flow-note{margin-top:28px;color:var(--muted)}
+@media (max-width:760px){
+  .steps{grid-template-columns:1fr;gap:0}
+  .step{display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding-bottom:20px}
+  .step .dot{grid-row:span 2}
+  .step .h3{margin-top:8px}
+  .step:not(:last-child)::before{top:44px;bottom:0;left:21px;right:auto;width:2px;height:auto}
+}
+
+/* ---- faq ---- */
+.faq{max-width:820px}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq details:first-of-type{border-top:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 44px 18px 0;font-weight:700;line-height:1.6;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--en);font-weight:600;font-size:1.7rem;line-height:1;color:var(--turf);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{padding:0 0 20px;color:var(--muted);max-width:42em}
+@media (max-width:760px){.faq summary{font-size:.95rem;padding-block:16px}}
+
+/* ---- final ---- */
+.final{position:relative;color:#fff;background:var(--pitch);overflow:hidden}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4}
+.final::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,38,26,.9) 0%,rgba(16,38,26,.55) 60%,rgba(16,38,26,.25) 100%)}
+.final .wrap{position:relative;z-index:1;display:grid;gap:20px;justify-items:start}
+.final h2{font-weight:900;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.35;letter-spacing:.03em}
+.final p{color:#e4ede5;line-height:1.9}
+.final .tlink{color:#fff}
+
+footer.site{background:var(--ink);color:#a9b8ac;font-size:.82rem;padding-block:28px}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center}
+footer.site a{color:#e6efe6}
+footer.site .copy{margin-left:auto}
+footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
+@media (max-width:760px){footer.site .wrap{flex-direction:column;align-items:flex-start;gap:8px}footer.site .copy{margin-left:0}}
+
+/* ---- mobile sticky CTA ---- */
+.mcta{display:none}
+@media (max-width:760px){
+  body{padding-bottom:64px}
+  .mcta{display:grid;grid-template-columns:1fr auto;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(16,38,26,.96);backdrop-filter:blur(6px)}
+  .mcta .btn{min-height:44px;font-size:.92rem;padding:0 16px}
+  .mcta .btn-secondary{color:#fff;border-color:rgba(255,255,255,.55)}
+  .mcta .btn-join{font-size:.8rem;padding:0 12px}
+}
+
+/* ---- 第7版：安心の一文・入会リンク・出張コーチング ---- */
+.assure{margin-top:20px;display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-weight:500;line-height:1.7}
+.assure::before{content:"";flex:0 0 20px;height:20px;margin-top:.2em;border-radius:50%;background:var(--turf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E") center/14px no-repeat}
+.step .tlink{display:inline-block;margin-top:6px;font-size:.95rem;justify-self:start}
+@media (max-width:760px){.step > :not(.dot){grid-column:2}}
+.board-fallback{color:var(--on-dark-2);border:1px solid var(--line-dark);border-radius:var(--radius);padding:16px 18px}
+.visit{padding-block:56px}
+.visit-box{border:1px solid var(--rule);border-radius:var(--radius);padding:24px 26px;max-width:820px}
+.visit-box .h3{margin-top:8px}
+.visit-box p.t{margin-top:8px;color:var(--muted)}
+.visit-box .tlink{display:inline-block;margin-top:12px}
+@media (max-width:760px){.visit{padding-block:44px}.visit-box{padding:20px}}
+
+/* 第10版：トップの帯をスマホでも3つ1行に（幅320px級の小さい端末だけ2行に折り返す） */
+@media (max-width:760px){
+  .facts dl{grid-template-columns:auto auto 1fr;column-gap:14px}
+  .fact,.fact:nth-child(3){grid-column:auto;border-top:0;padding:10px 0;min-width:0}
+  .fact + .fact{border-left:1px solid var(--line-dark);padding-left:14px}
+  .fact dt{font-size:.68rem}
+  .fact dd{font-size:.82rem;white-space:nowrap}
+}
+@media (max-width:359px){
+  .facts dl{grid-template-columns:1fr 1fr}
+  .fact:nth-child(3){grid-column:1 / -1;border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.1)}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="サッカースクールあきた トップへ">
+      <img src="img/ssa-logo.png" alt="">
+      <span>サッカースクールあきた<small>SOCCER SCHOOL AKITA</small></span>
+    </a>
+    <nav class="nav" aria-label="ページ内メニュー">
+      <a href="#about">スクールについて</a>
+      <a href="#coach">コーチ</a>
+      <a href="#classes">クラス・料金</a>
+      <a href="#voices">保護者の声</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験・入会申込</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav"><span class="bars" aria-hidden="true">☰</span>メニュー</button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="メニュー" hidden>
+    <a href="#about">スクールについて</a>
+    <a href="#coach">コーチ</a>
+    <a href="#classes">クラス・料金</a>
+    <a href="#voices">保護者の声</a>
+    <a href="#faq">よくある質問</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="hero-title">
+  <img class="hero-img" src="img/p33.jpg" alt="夜のグラウンドでコーチの話を聞く子どもたち">
+  <div class="wrap hero-body">
+    <div class="tags"><span>個の育成特化</span><span>秋田市・大仙市</span><span>指導歴20年以上</span></div>
+    <h1 id="hero-title">昨日の自分を、<br><em>超えていく。</em></h1>
+    <p class="sub"><span class="nw">「サッカーが好き」</span><span class="nw">「もっと上手くなりたい」から、</span><br>その先の夢や目標まで。<br>子どもたちの挑戦を支えるサッカースクールです。</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
+      <a class="btn btn-secondary" href="#classes">クラスの空き状況を見る</a>
+    </div>
+  </div>
+  <div class="facts">
+    <dl class="wrap">
+      <div class="fact"><dt>対象</dt><dd>小2〜中3</dd></div>
+      <div class="fact"><dt>クラス</dt><dd>定員制・先着順</dd></div>
+      <div class="fact"><dt>メソッド</dt><dd>クーバー・コーチング</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">About</p>
+      <h2 class="h2" id="about-title">一人ひとりの成長に、<br>向き合う場所。</h2>
+      <p class="lead">サッカースクールあきたは、所属チームと両立しながら、一人ひとりが「個」の力を伸ばすことに集中できるスクールです。チームとスクールには、それぞれ異なる役割があります。</p>
+    </div>
+    <div class="roles">
+      <div class="role">
+        <p class="who">所属チーム</p>
+        <h3 class="h3"><span class="nw">仲間とともに、</span><span class="nw">チームとして成長する場所。</span></h3>
+        <p class="t">試合や日々のトレーニングを通して、チーム戦術や仲間との連携を学びます。</p>
+      </div>
+      <div class="role ssa">
+        <p class="who">サッカースクールあきた</p>
+        <h3 class="h3">自分自身のプレーと向き合い、個人として成長する場所。</h3>
+        <p class="t">ボールを扱う技術、思い通りに動ける身体、<br class="sp-br">挑戦し続ける心。<br class="sp-br">サッカーに必要な<span class="nw">「心・技・体」を、</span>一人ひとりのペースで磨いていきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values" aria-labelledby="values-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Our Coaching</p>
+      <h2 class="h2" id="values-title"><span class="nw">一人ひとりが、</span><span class="nw">自分の成長を実感できるように。</span></h2>
+      <p class="lead">そのために、日々の指導で次の3つのことを大切にしています。</p>
+    </div>
+    <div class="values-cards">
+      <div class="value">
+        <div class="value-photo"><img src="img/v01.jpg" alt="ボールを足元に置き、次のプレーに備える子ども" loading="lazy"></div>
+        <div class="value-body"><p class="no">01</p><h3 class="h3">基本を身につけ、武器を磨く</h3><p class="catch"><span class="nw">当たり前のことを、当たり前に。</span><span class="nw">そして、自分だけの武器を。</span></p><p class="t">ボールを扱う技術やサッカーの原理原則など、プレーの土台となる基本を大切にしています。当たり前のことが当たり前にできるようになったうえで、自分の強みとなる「武器」を磨き、試合の中で使える技術へとつなげていきます。</p></div>
+      </div>
+      <div class="value">
+        <div class="value-photo"><img src="img/v02.jpg" alt="ゲーム形式のトレーニングでプレーする子どもたち" loading="lazy"></div>
+        <div class="value-body"><p class="no">02</p><h3 class="h3">自分で判断し、プレーする</h3><p class="catch">状況を見て、自分でプレーを選ぶ。</p><p class="t">サッカーでは、同じ状況が繰り返されることはほとんどありません。身につけた技術を、いつ、どこで、どう使うのか。目の前の状況に応じて、自分で判断してプレーできる選手を目指します。</p></div>
+      </div>
+      <div class="value">
+        <div class="value-photo"><img src="img/v03.jpg" alt="晴れたグラウンドでボールを追う子どもたちとコーチ" loading="lazy"></div>
+        <div class="value-body"><p class="no">03</p><h3 class="h3">自分を信じ、挑戦する</h3><p class="catch"><span class="nw">「上手くプレーする」より、</span><span class="nw">「上手くなるためにプレーする」。</span></p><p class="t">今できることをさらに磨きながら、新しいことにも積極的に挑戦することを大切にしています。うまくいかない経験も成長への大切な一歩です。一人ひとりが自分自身の成長に目を向け、夢や目標に向かって挑戦し続ける力を育てていきます。</p></div>
+      </div>
+    </div>
+    <p class="values-close"><span class="nw">技術を身につける。</span><span class="nw">自分で判断する。</span><span class="nw">挑戦を重ねる。</span><br><span class="nw">その積み重ねが、</span><span class="nw">「自分ならできる」という自信になります。</span></p>
+  </div>
+</section>
+
+<div class="coerver">
+  <div class="wrap">
+    <img src="img/p35.png" alt="クーバー・コーチング パートナースクール" loading="lazy">
+    <div class="txt">
+      <p class="name">Coerver<sup>®</sup> Coaching</p>
+      <p>サッカースクールあきたは、クーバー・コーチングとパートナーシップを結んでいます。</p>
+      <p><a class="tlink" href="https://coerver.co.jp/about/" target="_blank" rel="noopener">クーバー・コーチングについて詳しく見る</a></p>
+    </div>
+  </div>
+</div>
+
+<section id="coach" aria-labelledby="coach-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Coach</p>
+      <h2 class="h2" id="coach-title"><span class="nw">秋田の子どもたちが、</span><span class="nw">本気で挑戦できる環境を。</span></h2>
+    </div>
+    <div class="coach-grid">
+      <div class="person">
+        <img src="img/coach-sq.jpg" alt="スクールマスター 菊地勇太" loading="lazy">
+        <div class="meta">
+          <p class="role-name">スクールマスター</p>
+          <p class="name">菊地 勇太</p>
+        </div>
+      </div>
+      <div class="coach-body">
+        <p>2004年からプロの育成コーチとして指導に携わり、国内外のさまざまな育成の現場に触れてきました。その中で、子どもたちがどのような環境に出会い、何を経験するかが、その後の成長に大きく関わることを実感してきました。</p>
+        <p>秋田の子どもたちにも、サッカーで夢や目標に向かって本気で挑戦できる環境をつくりたい。その思いから、サッカースクールあきたを立ち上げました。</p>
+        <p>基本を身につけること、自分で考えること、そして失敗を恐れず何度でも挑戦すること。正しい努力を積み重ねることで、子どもたちは必ず成長していきます。</p>
+        <p>一人ひとりの夢や目標は違いますが、それぞれの思いを大切にしながら、子どもたちの成長を支えていきたいと考えています。</p>
+        <div class="history">
+          <p class="h">主な指導歴・研修歴</p>
+          <ul>
+            <li>2004年にクーバー・コーチングメソッドを習得</li>
+            <li>スペイン・ドイツ・オランダ・アメリカなど、国内外で育成に関する研修・視察を経験</li>
+            <li>これまで指導に携わった選手の中には、Jリーガーや世代別日本代表、なでしこジャパンに選出された選手もいます。</li>
+          </ul>
+        </div>
+        <figure class="joan">
+          <img src="img/joan.jpg" alt="ジョアン・ビラ氏" loading="lazy">
+          <div class="joan-body">
+            <blockquote><p>より良いサッカー選手であると同時に、より良い人間へと成長させる取り組みだと感じています。</p></blockquote>
+            <figcaption><b>Joan Vilà（ジョアン・ビラ）氏</b>元FCバルセロナ メソッド部門責任者</figcaption>
+            <details>
+              <summary>推薦文の全文を読む</summary>
+              <p>情熱をもって若い選手たちを正しい道へ導き、より良いサッカー選手であると同時に、より良い人間へと成長させる取り組みだと感じています。このプロジェクトが成功することを、私は強く確信しています。バルセロナから、心を込めて応援しています。</p>
+              <p class="es" lang="es">Con pasión para dirigir a estos jóvenes jugadores por un buen camino, para que sean mejores futbolistas y mejores personas. Estoy convencido de que será un éxito y desde Barcelona te mando un abrazo.</p>
+            </details>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="classes" class="board-sec on-dark" aria-labelledby="classes-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Classes</p>
+      <h2 class="h2" id="classes-title">クラス・料金</h2>
+      <p class="lead">通いやすいように、複数の会場と曜日でクラスを開講しています。</p>
+    </div>
+
+    <div class="legend">
+      <span class="asof" id="asof">空き状況</span>
+      <span class="st ok"><span class="sym">○</span>受付中</span>
+      <span class="st few"><span class="sym">△</span>残り1〜3名</span>
+      <span class="st full"><span class="sym">×</span>キャンセル待ち</span>
+    </div>
+
+
+    <div class="cls-cards" id="cls-cards"></div>
+    <noscript><p class="board-fallback">空き状況は、体験申込フォームでご確認ください。</p></noscript>
+
+    <div class="fees" aria-label="料金">
+      <div class="fee"><p class="l">月謝（1クラス）</p><p class="v">6,000<small>円</small></p></div>
+      <div class="fee"><p class="l">月謝（2クラス）</p><p class="v">11,000<small>円</small></p></div>
+      <div class="fee"><p class="l">入会金</p><p class="v">5,500<small>円</small></p><p class="s">兄弟姉妹は2人目以降半額</p></div>
+      <div class="fee"><p class="l">年会費</p><p class="v">6,600<small>円</small></p><p class="s">入会時・年度更新時</p></div>
+    </div>
+    <div class="board-notes">
+      <p>※会場の都合により、土・日・祝日に開催する場合があります。</p>
+      <p>※キャンセル待ちのクラスも、状況により体験をご案内できる場合があります。</p>
+    </div>
+    <div class="sec-cta"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a></div>
+  </div>
+</section>
+
+<section aria-labelledby="fit-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">For You</p>
+      <h2 class="h2" id="fit-title">こんなお子さまにおすすめです</h2>
+    </div>
+    <div class="fit-grid">
+      <div>
+        <ul class="checks">
+          <li>サッカーが好きで、もっと上手くなりたい</li>
+          <li>個人の技術をしっかり身につけたい</li>
+          <li>試合の中で、自分で判断してプレーできるようになりたい</li>
+          <li>自分のプレーにもっと自信を持ちたい</li>
+          <li>夢や目標に向かって、本気でチャレンジしたい</li>
+        </ul>
+        <p class="checks-close">お子さまの思いと重なるところがあれば、まずは実際のトレーニングを体験してください。</p>
+      </div>
+      <div class="fit-photo"><img src="img/fit.jpg" alt="夜のグラウンドでコーチと一緒に練習する子どもたち" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="voices" class="tint" aria-labelledby="voices-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Voices</p>
+      <h2 class="h2" id="voices-title">保護者の声</h2>
+      <p class="lead">体験に参加した保護者の方からいただいた声の一部です。</p>
+    </div>
+    <div class="voices">
+      <figure class="voice"><p class="angle">プレーについて</p><p>名前を呼びながら教えてもらえたことで、何が良くて何が足りないのかが分かりやすかったです。</p><figcaption class="who note">小学6年生・保護者</figcaption></figure>
+      <figure class="voice"><p class="angle">挑戦する姿勢</p><p>チャレンジを後押ししてくれる雰囲気があり、子どもが前向きに取り組めていました。</p><figcaption class="who note">中学2年生・保護者</figcaption></figure>
+      <figure class="voice"><p class="angle">参加して感じたこと</p><p>コミュニケーションを取りながら指導してくれて、子どもが安心して取り組めていると感じました。</p><figcaption class="who note">小学3年生・保護者</figcaption></figure>
+    </div>
+    <details class="survey">
+      <summary class="tlink">実際のアンケートを見る</summary>
+      <div class="survey-grid">
+        <img src="img/survey1.jpg" alt="体験会アンケート（手書き）1" loading="lazy">
+        <img src="img/survey2.jpg" alt="体験会アンケート（手書き）2" loading="lazy">
+        <img src="img/survey4.jpg" alt="体験会アンケート（手書き）4" loading="lazy">
+        <img src="img/survey5.jpg" alt="体験会アンケート（手書き）5" loading="lazy">
+        <img src="img/survey6.jpg" alt="体験会アンケート（手書き）6" loading="lazy">
+        <img src="img/survey7.jpg" alt="体験会アンケート（手書き）7" loading="lazy">
+      </div>
+      <p class="note" style="margin-top:8px">開校前体験会（2022年）でいただいたアンケートです。</p>
+    </details>
+    <p class="media-line"><b>メディア掲載実績</b>読売新聞（2022年9月18日）／月刊エー・クラス（2022年9月1日号）／ABSラジオ「まちなかSESSION エキマイク」（2022年6月13日放送）</p>
+  </div>
+</section>
+
+<section aria-labelledby="flow-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">How to Join</p>
+      <h2 class="h2" id="flow-title">まずは、無料体験から。</h2>
+      <p class="lead">実際のトレーニングをお子さま自身が体験してから、その後のことを一緒に考えていただけます。</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="dot">01</span><h3 class="h3">無料体験に申し込む</h3><p>申し込みフォームから、参加したい日程を選んでお申し込みください。全3回でじっくり体験できる継続体験（6,600円）もご用意しています。</p></li>
+      <li class="step"><span class="dot">02</span><h3 class="h3">実際のスクールに参加</h3><p>受付と簡単なヒアリングのあと、トレーニングに参加します。</p></li>
+      <li class="step"><span class="dot">03</span><h3 class="h3">体験後にご案内</h3><p>ご質問にお答えし、クラスや曜日についてご案内します。</p></li>
+      <li class="step"><span class="dot">04</span><h3 class="h3">入会</h3><p>ご希望の方は、入会のお手続きをご案内します。定員制のため先着順となります。</p><a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join">入会を申し込む</a></li>
+    </ol>
+    <p class="assure"><span><span class="nw">体験後の入会を</span><span class="nw">無理におすすめすることはありません。</span></span></p>
+    <div class="sec-cta"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a></div>
+  </div>
+</section>
+
+<section id="faq" class="tint" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">FAQ</p>
+      <h2 class="h2" id="faq-title">よくある質問</h2>
+    </div>
+    <div class="faq">
+      <details><summary>所属チームに入っていても参加できますか？</summary><p>はい。多くのスクール生が、所属チームと両立しながら通っています。</p></details>
+      <details><summary>初心者でも参加できますか？</summary><p>まずは無料体験にご参加ください。基本的な動きや集団での活動に少し慣れているお子さまを中心に指導しているため、体験の様子を見ながら、お子さまに合った参加の仕方をご案内します。</p></details>
+      <details><summary>体験には何が必要ですか？</summary><p>サッカーができる服装、シューズ（会場により異なります）、サッカーボール（小学生4号・中学生5号）、すね当て、飲み物、タオルをご用意ください。</p></details>
+      <details><summary>欠席した場合、振替はできますか？</summary><p>はい。自己都合の欠席、スクール都合の中止のどちらも、可能な範囲で振替に対応しています。</p></details>
+      <details><summary>月の途中からでも入会できますか？</summary><p>はい。月の途中からでもご入会いただけます。なお、すでに終了しているトレーニング分は、後日、振替練習で調整します。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div class="visit-box">
+      <p class="label">For Teams</p>
+      <h2 class="h3" id="visit-title">チーム・団体向けの出張コーチング</h2>
+      <p class="t">チームや団体への出張コーチングにも対応しています。ご希望の内容や対象年代に応じてご相談を承ります。</p>
+      <a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSeE3TQ5aiZ42ihgywM2g55gcdO3Ykk_OrnNSprsJ6ABGsW0eQ/viewform" target="_blank" rel="noopener" data-form="contact">お問い合わせフォームから相談する</a>
+    </div>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="final-title">
+  <img src="img/final.jpg" alt="" loading="lazy" style="object-position:center 20%">
+  <div class="wrap">
+    <h2 id="final-title">まずは、無料体験へ。</h2>
+    <p>実際のトレーニングを通して、スクールの指導や雰囲気を体験してください。</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
+    </div>
+    <a class="tlink" href="#classes">クラスの空き状況を見る</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>運営：一般社団法人ゆめはぐプロジェクト</span>
+    <span class="links">
+      <a href="https://www.instagram.com/ssakita.2022/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://x.com/ssakita2022" target="_blank" rel="noopener">X</a>
+      <a href="https://yumehagu.net/" target="_blank" rel="noopener">法人サイト</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE3TQ5aiZ42ihgywM2g55gcdO3Ykk_OrnNSprsJ6ABGsW0eQ/viewform" target="_blank" rel="noopener" data-form="contact">お問い合わせ</a>
+    </span>
+    <span class="copy">© サッカースクールあきた 2022–<span id="cy">2026</span></span>
+  </div>
+</footer>
+
+<div class="mcta" aria-label="申し込み">
+  <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
+  <a class="btn btn-secondary btn-join" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join">入会申込</a>
+</div>
+
+<script>
+/* 空き状況：data/classes.js から会場ごとのカードを作る（PC・スマホ共通） */
+(function(){
+  var data = window.SSA_CLASSES;
+  if (!data) return;
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  function badge(s){
+    if (s.status === "ok")  return '<span class="st ok"><span class="sym">○</span>受付中</span>';
+    if (s.status === "few") return '<span class="st few"><span class="sym">△</span>残り' + esc(s.left) + '名</span>';
+    return '<span class="st full"><span class="sym">×</span>キャンセル待ち</span>';
+  }
+  /* 第11版：日付は見ている日の日付を表示（空き枠は入会があったときだけ更新・代表判断2026-10-09） */
+  var t = new Date();
+  document.getElementById("asof").textContent = "空き状況：" + t.getFullYear() + "年" + (t.getMonth() + 1) + "月" + t.getDate() + "日現在";
+
+  var cards = "";
+  data.venues.forEach(function(v){
+    cards += '<div class="cls-group"><p class="cls-venue"><b>' + esc(v.name) + '</b>' + esc(v.note) + '</p><div class="cls-grid">';
+    v.classes.forEach(function(c){
+      var sub = esc(c.target) + '／定員' + esc(c.capacity) + '名';
+      cards += '<div class="cls-card"><h3 class="h3">' + esc(c.name) + '<small>' + sub + '</small></h3><ul class="cls-days">';
+      c.slots.forEach(function(s){
+        cards += '<li><span class="d">' + esc(s.day) + '</span><span class="t">' + esc(s.time) + (s.note ? '<small>' + esc(s.note) + '</small>' : '') + '</span>' + badge(s) + '</li>';
+      });
+      cards += '</ul></div>';
+    });
+    cards += '</div></div>';
+  });
+  document.getElementById("cls-cards").innerHTML = cards;
+})();
+
+/* スマホのメニュー：開く・閉じる（項目を選ぶと閉じる） */
+(function(){
+  var btn = document.querySelector(".menu-btn"), nav = document.getElementById("mnav");
+  if (!btn || !nav) return;
+  function set(open){ nav.hidden = !open; btn.setAttribute("aria-expanded", open ? "true" : "false"); }
+  btn.addEventListener("click", function(){ set(nav.hidden); });
+  Array.prototype.forEach.call(nav.querySelectorAll("a"), function(a){ a.addEventListener("click", function(){ set(false); }); });
+})();
+
+/* フッターの年：自動で今年に（JSが動かないときは2026） */
+document.getElementById("cy").textContent = new Date().getFullYear();
+
+/* アンケート画像：タップで拡大、もう一度タップ（または「閉じる」・Escキー）で戻る */
+(function(){
+  var imgs = document.querySelectorAll(".survey-grid img");
+  function open(src, alt){
+    var z = document.createElement("div");
+    z.className = "zoom"; z.setAttribute("role","dialog"); z.setAttribute("aria-label", alt);
+    z.innerHTML = '<button class="close" type="button">閉じる</button><img alt="">';
+    z.querySelector("img").src = src; z.querySelector("img").alt = alt;
+    function close(){ z.remove(); document.removeEventListener("keydown", onKey); }
+    function onKey(e){ if (e.key === "Escape") close(); }
+    z.addEventListener("click", close);
+    document.addEventListener("keydown", onKey);
+    document.body.appendChild(z);
+  }
+  Array.prototype.forEach.call(imgs, function(im){
+    im.addEventListener("click", function(){ open(im.src, im.alt); });
+  });
+})();
+</script>
+
+</body>
+</html>
