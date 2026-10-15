@@ -202,9 +202,16 @@ section{padding-block:var(--sec)}
 .value .no{font-family:var(--en);font-weight:700;font-size:1.5rem;line-height:1.1;color:var(--turf);margin-bottom:4px}
 .value .catch{margin-top:4px;font-weight:500}
 .value p.t{margin-top:8px;color:var(--muted);font-size:.95rem;line-height:1.85}
-.values-close{margin-top:36px;padding-top:24px;border-top:1px solid var(--rule);font-weight:700;font-size:1.06rem;line-height:1.8}
-/* 第13版：1行目（23字）が1行に収まるよう、スマホでは画面幅に合わせて文字を少し小さくする */
-@media (max-width:760px){.values-close{font-size:min(1rem, calc((100vw - 32px) / 25))}}
+.values-close{margin-top:40px;padding-top:28px;border-top:1px solid var(--rule);font-weight:700;font-size:1.45rem;line-height:1.7}
+/* 2026-10-15（代表指示「小さすぎる」「スマホで5行は見づらい」）：締めの一文として大きくする。
+   スマホは中央寄せの3行：1行目＝3つの短い文を1行に（画面幅に合わせた大きさ）、2・3行目＝結論を大きく。色は全文黒（代表指示） */
+@media (max-width:760px){
+  .values-close{text-align:center;line-height:1.6}
+  .vc-key{display:block;font-size:min(1rem, calc((100vw - 32px) / 24.5));margin-bottom:6px}
+  .values-close br{display:none}
+  .vc-main{display:block;font-size:min(1.25rem, calc((100vw - 32px) / 20))}
+  .vc-main .nw{display:block}
+}
 @media (max-width:860px){.values-cards{grid-template-columns:1fr;gap:28px}.value-photo{aspect-ratio:16/9}}
 @media (max-width:760px){.value-body{padding-top:12px}.value .no{font-size:1.3rem}.values-close{margin-top:28px}}
 
@@ -258,7 +265,7 @@ section{padding-block:var(--sec)}
 /* 第15版：スマホは下部に申込ボタンが常にあるため、ページ途中の「体験に申し込む」ボタンは出さない */
 .sp-br{display:none}
 @media (max-width:760px){
-  .hero .btn-primary,.sec-cta,.final .ctas{display:none}
+  .hero .btn-seats,.sec-cta,.final .ctas{display:none}
   .sp-br{display:inline}
 }
 .person .meta{margin-top:0}
@@ -268,6 +275,7 @@ section{padding-block:var(--sec)}
 .board-sec{background:var(--pitch);color:#fff}
 .legend{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:16px;font-size:var(--fs-note);color:var(--on-dark-2)}
 .legend .asof{flex-basis:100%}
+.cls-rule{margin:-4px 0 16px;font-weight:700;font-size:.98rem;color:#fff}
 .asof{font-family:var(--en);font-weight:600;letter-spacing:.04em;color:#fff;font-size:.95rem}
 .st{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:2px 9px;font-size:.82rem;font-weight:700;line-height:1.6;white-space:nowrap;border:1px solid transparent}
 .st .sym{font-family:var(--en);font-size:1.05rem;line-height:1}
@@ -432,11 +440,10 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
 .cls-trial{margin:2px 0 6px;font-size:.8rem;color:var(--on-dark-2)}
 .cls-trial a{color:#ff9d5c;font-weight:700}
 @media (max-width:900px){.trial-grid{grid-template-columns:1fr}}
-/* スマホは冒頭の申込ボタンを出さないため、日程ボタンをオレンジの主ボタンにする（代表指示2026-10-15） */
+/* 冒頭のボタン（代表指示2026-10-15）：PCは「無料体験の日程を見る」（主）＋「クラスの空き状況を見る」。スマホは日程ボタンだけを大きく出す（申込は下部の固定ボタン） */
+.hero .btn-trial::after{content:"↓";font-weight:500}
 @media (max-width:760px){
-  .hero .btn-trial{background:var(--kick);border-color:var(--kick);color:#fff;min-height:52px;font-size:1.05rem;box-shadow:0 6px 18px rgba(232,96,10,.35)}
-  .hero .btn-trial::after{content:"↓";font-weight:500}
-  .hero .btn-trial:hover{background:var(--kick-dark)}
+  .hero .btn-trial{min-height:52px;font-size:1.05rem;box-shadow:0 6px 18px rgba(232,96,10,.35)}
 }
 @media (max-width:760px){.tcard{padding:16px 16px 4px}.tdates .when{font-size:1.3rem}}
 
@@ -490,8 +497,8 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     <h1 id="hero-title">昨日の自分を、<br><em>超えていく。</em></h1>
     <p class="sub"><span class="nw">「サッカーが好き」</span><span class="nw">「もっと上手くなりたい」から、</span><br>その先の夢や目標まで。<br>子どもたちの挑戦を支えるサッカースクールです。</p>
     <div class="ctas">
-      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
-      <a class="btn btn-secondary btn-trial" href="#trial">無料体験の日程を見る</a>
+      <a class="btn btn-primary btn-trial" href="#trial">無料体験の日程を見る</a>
+      <a class="btn btn-secondary btn-seats" href="#classes">クラスの空き状況を見る</a>
     </div>
   </div>
   <div class="facts">
@@ -508,13 +515,13 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     <div class="sec-head">
       <p class="label">Free Trial</p>
       <h2 class="h2" id="trial-title">次回の無料体験</h2>
-      <p class="lead"><span class="nw">お子さまの学年から、</span><span class="nw">ご希望の体験日をお選びください。</span><span class="nw">無料でご参加いただけます。</span></p>
+      <p class="lead"><span class="nw">お子さまの学年から、</span><span class="nw">ご希望の体験日をお選びください。</span><br><span class="nw">実際のトレーニングを無料で体験できます。</span><span class="nw">体験後に入会を決める必要はありません。</span></p>
     </div>
     <div class="trial-grid" id="trial-grid"></div>
     <noscript><p class="note">日程は、体験申込フォームでご確認ください。</p></noscript>
     <div class="trial-foot">
       <p><a class="tlink" id="trial-other" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">掲載日程以外での体験をご希望の方も、お気軽にご相談ください。</a></p>
-      <p class="note">大仙市会場（月曜）は現在キャンセル待ちのため、体験はフォームからご相談ください。全3回の継続体験（6,600円）もフォームから申し込めます。</p>
+      <p class="note">大仙市会場（月曜）は現在満席ですが、無料体験のお申し込みは受け付けています。体験をご希望の方は、上のリンクからお気軽にお申し込みください。<br>参加可能な日程ができ次第、こちらからご案内いたします。</p>
     </div>
   </div>
 </section>
@@ -562,7 +569,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
         <div class="value-body"><p class="no">03</p><h3 class="h3">自分を信じ、挑戦する</h3><p class="catch"><span class="nw">「上手くプレーする」より、</span><span class="nw">「上手くなるためにプレーする」。</span></p><p class="t">今できることをさらに磨きながら、新しいことにも積極的に挑戦することを大切にしています。うまくいかない経験も成長への大切な一歩です。一人ひとりが自分自身の成長に目を向け、夢や目標に向かって挑戦し続ける力を育てていきます。</p></div>
       </div>
     </div>
-    <p class="values-close"><span class="nw">技術を身につける。</span><span class="nw">自分で判断する。</span><span class="nw">挑戦を重ねる。</span><br><span class="nw">その積み重ねが、</span><span class="nw">「自分ならできる」という自信になります。</span></p>
+    <p class="values-close"><span class="vc-key"><span class="nw">技術を身につける。</span><span class="nw">自分で判断する。</span><span class="nw">挑戦を重ねる。</span></span><br><span class="vc-main"><span class="nw">その積み重ねが、</span><span class="nw">「自分ならできる」という自信になります。</span></span></p>
   </div>
 </section>
 
@@ -635,6 +642,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       <span class="st few"><span class="sym">△</span>残り1〜3名</span>
       <span class="st full"><span class="sym">×</span>キャンセル待ち</span>
     </div>
+    <p class="cls-rule">各クラスとも定員制のため、<span class="nw">ご入会は先着順となります。</span></p>
 
 
     <div class="cls-cards" id="cls-cards"></div>
@@ -648,7 +656,8 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     </div>
     <div class="board-notes">
       <p>※会場の都合により、土・日・祝日に開催する場合があります。</p>
-      <p>※キャンセル待ちの曜日がある学年も、無料体験には参加できます（日程は<a href="#trial" style="color:#ff9d5c">「次回の無料体験」</a>）。</p>
+      <p>※キャンセル待ちのクラスも、<a class="js-trial-other" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial" style="color:#ff9d5c">無料体験のお申し込み</a>を受け付けています。参加可能な日程が決まり次第、ご案内します。</p>
+      <p>※入会をご希望の方は、<a href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join" style="color:#ff9d5c">フォーム</a>からお申し込みください。空き状況を確認のうえ、ご案内します。</p>
     </div>
     <div class="sec-cta"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a></div>
   </div>
@@ -712,7 +721,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       <p class="lead">実際のトレーニングをお子さま自身が体験してから、その後のことを一緒に考えていただけます。</p>
     </div>
     <ol class="steps">
-      <li class="step"><span class="dot">01</span><h3 class="h3">無料体験に申し込む</h3><p>「次回の無料体験」から参加したい日を選び、申し込みフォームを送信してください。全3回でじっくり体験できる継続体験（6,600円）もご用意しています。</p></li>
+      <li class="step"><span class="dot">01</span><h3 class="h3">無料体験に申し込む</h3><p><a href="#trial" style="color:var(--kick-dark);font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px">ページ上部の「次回の無料体験」</a>から参加したい日を選び、申し込みフォームを送信してください。全3回でじっくり体験できる継続体験（6,600円）もご用意しています。</p></li>
       <li class="step"><span class="dot">02</span><h3 class="h3">実際のスクールに参加</h3><p>受付と簡単なヒアリングのあと、トレーニングに参加します。</p></li>
       <li class="step"><span class="dot">03</span><h3 class="h3">体験後にご案内</h3><p>ご質問にお答えし、クラスや曜日についてご案内します。</p></li>
       <li class="step"><span class="dot">04</span><h3 class="h3">入会</h3><p>ご希望の方は、入会のお手続きをご案内します。定員制のため先着順となります。</p><a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join">入会を申し込む</a></li>
@@ -731,6 +740,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     <div class="faq">
       <details><summary>所属チームに入っていても参加できますか？</summary><p>はい。多くのスクール生が、所属チームと両立しながら通っています。</p></details>
       <details><summary>初心者でも参加できますか？</summary><p>まずは無料体験にご参加ください。基本的な動きや集団での活動に少し慣れているお子さまを中心に指導しているため、体験の様子を見ながら、お子さまに合った参加の仕方をご案内します。</p></details>
+      <details><summary>無料体験では、どのようなことをしますか？</summary><p>通常のスクールに参加し、実際のトレーニングを体験していただきます。初めての方にもスタッフがご案内しますので、安心してご参加ください。体験後はご質問にもお答えします。</p></details>
       <details><summary>体験には何が必要ですか？</summary><p>サッカーができる服装、シューズ（会場により異なります）、サッカーボール（小学生4号・中学生5号）、すね当て、飲み物、タオルをご用意ください。</p></details>
       <details><summary>欠席した場合、振替はできますか？</summary><p>はい。自己都合の欠席、スクール都合の中止のどちらも、可能な範囲で振替に対応しています。</p></details>
       <details><summary>月の途中からでも入会できますか？</summary><p>はい。月の途中からでもご入会いただけます。なお、すでに終了しているトレーニング分は、後日、振替練習で調整します。</p></details>
@@ -832,8 +842,9 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       html += '</div>';
     });
     tg.innerHTML = html;
-    var other = document.getElementById("trial-other");
-    if (other) other.href = FORM + "?usp=pp_url" + KIND + "&entry.304814716=" + encodeURIComponent("希望の日程がない（ご希望を最後の欄にお書きください）");
+    // 「掲載日程以外の体験」「満員のクラスでの体験」のリンクは、フォームの「希望の日程がない」にチェックを入れて開く
+    var otherUrl = FORM + "?usp=pp_url" + KIND + "&entry.304814716=" + encodeURIComponent("希望の日程がない（ご希望を最後の欄にお書きください）");
+    document.querySelectorAll("#trial-other, .js-trial-other").forEach(function (a) { a.href = otherUrl; });
   }
 
   var cards = "";
