@@ -16,6 +16,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://ssa.yumehagu.net/">
 <link rel="icon" href="img/ssa-logo.png">
+<!-- Googleアナリティクス（ssakita - GA4。2026-10-15導入） -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T8HWES7HVV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T8HWES7HVV');</script>
 <script src="data/classes.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -408,6 +411,35 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
 .visit-box .tlink{display:inline-block;margin-top:12px}
 @media (max-width:760px){.visit{padding-block:44px}.visit-box{padding:20px}}
 
+/* ---- 第16版：次回の無料体験（学年ごとに日程を並べ、ボタンで日程入りのフォームを開く） ---- */
+.trial{background:var(--paper);border-bottom:1px solid var(--rule)}
+.trial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:start}
+.tcard{background:#fff;border:1px solid var(--rule);border-radius:var(--radius);padding:20px 20px 8px;min-width:0}
+.tcard .grade{font-weight:800;font-size:1.2rem;line-height:1.4}
+.tcard .grade small{display:block;font-weight:500;font-size:.8rem;color:var(--note);letter-spacing:.04em}
+.tdates{list-style:none;padding:0;margin-top:10px}
+.tdates li{border-top:1px solid var(--rule);padding:14px 0;display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center}
+.tdates .when{font-family:var(--en);font-weight:700;font-size:1.45rem;line-height:1.1}
+.tdates .when .wd{font-family:var(--jp);font-size:.9rem;font-weight:700;margin-left:2px}
+.tdates .where{grid-column:1;font-size:.84rem;color:var(--muted);line-height:1.5}
+.tcard .grade .only{display:inline-block;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--kick-dark);background:#fdf0e6;border-radius:6px;padding:1px 8px}
+.tdates .vn{grid-column:1 / -1;margin-top:-4px;font-size:.84rem;color:var(--muted);line-height:1.5}
+.tdates .btn{white-space:nowrap}
+.tdates .btn{grid-column:2;grid-row:1 / span 2;min-height:44px;padding:0 12px;font-size:.86rem}
+.tdates .btn::after{content:none}
+.tempty{border-top:1px solid var(--rule);padding:14px 0;font-size:.9rem;color:var(--muted)}
+.trial-foot{margin-top:20px;display:grid;gap:6px;font-size:.92rem;color:var(--muted)}
+.cls-trial{margin:2px 0 6px;font-size:.8rem;color:var(--on-dark-2)}
+.cls-trial a{color:#ff9d5c;font-weight:700}
+@media (max-width:900px){.trial-grid{grid-template-columns:1fr}}
+/* スマホは冒頭の申込ボタンを出さないため、日程ボタンをオレンジの主ボタンにする（代表指示2026-10-15） */
+@media (max-width:760px){
+  .hero .btn-trial{background:var(--kick);border-color:var(--kick);color:#fff;min-height:52px;font-size:1.05rem;box-shadow:0 6px 18px rgba(232,96,10,.35)}
+  .hero .btn-trial::after{content:"↓";font-weight:500}
+  .hero .btn-trial:hover{background:var(--kick-dark)}
+}
+@media (max-width:760px){.tcard{padding:16px 16px 4px}.tdates .when{font-size:1.3rem}}
+
 /* 第10版：トップの帯をスマホでも3つ1行に（幅320px級の小さい端末だけ2行に折り返す） */
 @media (max-width:760px){
   .facts dl{grid-template-columns:auto auto 1fr;column-gap:14px}
@@ -459,7 +491,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     <p class="sub"><span class="nw">「サッカーが好き」</span><span class="nw">「もっと上手くなりたい」から、</span><br>その先の夢や目標まで。<br>子どもたちの挑戦を支えるサッカースクールです。</p>
     <div class="ctas">
       <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
-      <a class="btn btn-secondary" href="#classes">クラスの空き状況を見る</a>
+      <a class="btn btn-secondary btn-trial" href="#trial">無料体験の日程を見る</a>
     </div>
   </div>
   <div class="facts">
@@ -468,6 +500,22 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       <div class="fact"><dt>クラス</dt><dd>定員制・先着順</dd></div>
       <div class="fact"><dt>メソッド</dt><dd>クーバー・コーチング</dd></div>
     </dl>
+  </div>
+</section>
+
+<section id="trial" class="trial" aria-labelledby="trial-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Free Trial</p>
+      <h2 class="h2" id="trial-title">次回の無料体験</h2>
+      <p class="lead"><span class="nw">お子さまの学年から、</span><span class="nw">ご希望の体験日をお選びください。</span><span class="nw">無料でご参加いただけます。</span></p>
+    </div>
+    <div class="trial-grid" id="trial-grid"></div>
+    <noscript><p class="note">日程は、体験申込フォームでご確認ください。</p></noscript>
+    <div class="trial-foot">
+      <p><a class="tlink" id="trial-other" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">掲載日程以外での体験をご希望の方も、お気軽にご相談ください。</a></p>
+      <p class="note">大仙市会場（月曜）は現在キャンセル待ちのため、体験はフォームからご相談ください。全3回の継続体験（6,600円）もフォームから申し込めます。</p>
+    </div>
   </div>
 </section>
 
@@ -600,7 +648,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     </div>
     <div class="board-notes">
       <p>※会場の都合により、土・日・祝日に開催する場合があります。</p>
-      <p>※キャンセル待ちのクラスも、状況により体験をご案内できる場合があります。</p>
+      <p>※キャンセル待ちの曜日がある学年も、無料体験には参加できます（日程は<a href="#trial" style="color:#ff9d5c">「次回の無料体験」</a>）。</p>
     </div>
     <div class="sec-cta"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a></div>
   </div>
@@ -664,7 +712,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       <p class="lead">実際のトレーニングをお子さま自身が体験してから、その後のことを一緒に考えていただけます。</p>
     </div>
     <ol class="steps">
-      <li class="step"><span class="dot">01</span><h3 class="h3">無料体験に申し込む</h3><p>申し込みフォームから、参加したい日程を選んでお申し込みください。全3回でじっくり体験できる継続体験（6,600円）もご用意しています。</p></li>
+      <li class="step"><span class="dot">01</span><h3 class="h3">無料体験に申し込む</h3><p>「次回の無料体験」から参加したい日を選び、申し込みフォームを送信してください。全3回でじっくり体験できる継続体験（6,600円）もご用意しています。</p></li>
       <li class="step"><span class="dot">02</span><h3 class="h3">実際のスクールに参加</h3><p>受付と簡単なヒアリングのあと、トレーニングに参加します。</p></li>
       <li class="step"><span class="dot">03</span><h3 class="h3">体験後にご案内</h3><p>ご質問にお答えし、クラスや曜日についてご案内します。</p></li>
       <li class="step"><span class="dot">04</span><h3 class="h3">入会</h3><p>ご希望の方は、入会のお手続きをご案内します。定員制のため先着順となります。</p><a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join">入会を申し込む</a></li>
@@ -709,7 +757,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     <div class="ctas">
       <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
     </div>
-    <a class="tlink" href="#classes">クラスの空き状況を見る</a>
+    <a class="tlink" href="#trial">無料体験の日程を見る</a>
   </div>
 </section>
 
@@ -748,12 +796,55 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
   var t = new Date();
   document.getElementById("asof").textContent = "空き状況：" + t.getFullYear() + "年" + (t.getMonth() + 1) + "月" + t.getDate() + "日現在";
 
+  /* 第16版：無料体験の日程（過ぎた日は出さない）。ボタンは日程にチェックが入った状態でフォームを開く */
+  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform";
+  var KIND = "&entry.1278701996=" + encodeURIComponent("無料体験（1回・無料）");
+  var WD = ["日","月","火","水","木","金","土"];
+  var today = new Date(t.getFullYear(), t.getMonth(), t.getDate());
+  function ymd(s){ var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  var trials = (data.trials || []).filter(function(x){ return ymd(x.date) >= today; })
+    .sort(function(a, b){ return ymd(a.date) - ymd(b.date); });
+  function upcoming(cls){ return trials.filter(function(x){ return x.cls === cls; }).slice(0, 3); }
+  function md(x){ var d = ymd(x.date); return (d.getMonth() + 1) + "/" + d.getDate() + "（" + WD[d.getDay()] + "）"; }
+  var akita = data.venues[0];
+  var tg = document.getElementById("trial-grid");
+  if (tg) {
+    var html = "";
+    akita.classes.forEach(function(c){
+      var list = upcoming(c.name);
+      var only = list.filter(function(x){ return x.note; })[0];
+      html += '<div class="tcard"><p class="grade">' + esc(c.target.replace("小", "小学").replace("中", "中学")) + '年生<small>' + esc(c.name) + 'クラス・秋田市会場</small>' +
+        (only ? '<span class="only">体験は' + esc(only.note.replace("のみ", "年生のみ")) + '</span>' : '') + '</p>';
+      if (!list.length) {
+        html += '<p class="tempty">現在、次の日程を調整中です。</p>';
+      } else {
+        html += '<ul class="tdates">';
+        list.forEach(function(x){
+          var d = ymd(x.date);
+          var url = FORM + "?usp=pp_url" + KIND + "&entry.304814716=" + encodeURIComponent(x.form);
+          html += '<li><span class="when">' + (d.getMonth() + 1) + '/' + d.getDate() + '<span class="wd">（' + WD[d.getDay()] + '）</span></span>' +
+            '<span class="where">' + esc(x.time) + '</span>' +
+            '<a class="btn btn-primary" href="' + url + '" target="_blank" rel="noopener" data-form="trial">この日で申し込む</a>' +
+            '<span class="vn">' + esc(x.venue) + '</span></li>';
+        });
+        html += '</ul>';
+      }
+      html += '</div>';
+    });
+    tg.innerHTML = html;
+    var other = document.getElementById("trial-other");
+    if (other) other.href = FORM + "?usp=pp_url" + KIND + "&entry.304814716=" + encodeURIComponent("希望の日程がない（ご希望を最後の欄にお書きください）");
+  }
+
   var cards = "";
   data.venues.forEach(function(v){
     cards += '<div class="cls-group"><p class="cls-venue"><b>' + esc(v.name) + '</b>' + esc(v.note) + '</p><div class="cls-grid">';
     v.classes.forEach(function(c){
       var sub = esc(c.target) + '／定員' + esc(c.capacity) + '名';
-      cards += '<div class="cls-card"><h3 class="h3">' + esc(c.name) + '<small>' + sub + '</small></h3><ul class="cls-days">';
+      var tl = (v === akita) ? upcoming(c.name) : [];
+      cards += '<div class="cls-card"><h3 class="h3">' + esc(c.name) + '<small>' + sub + '</small></h3>' +
+        (tl.length ? '<p class="cls-trial"><a href="#trial">無料体験 ' + tl.slice(0, 2).map(md).join('・') + ' →</a></p>' : '') +
+        '<ul class="cls-days">';
       c.slots.forEach(function(s){
         cards += '<li><span class="d">' + esc(s.day) + '</span><span class="t">' + esc(s.time) + (s.note ? '<small>' + esc(s.note) + '</small>' : '') + '</span>' + badge(s) + '</li>';
       });
@@ -772,6 +863,15 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
   btn.addEventListener("click", function(){ set(nav.hidden); });
   Array.prototype.forEach.call(nav.querySelectorAll("a"), function(a){ a.addEventListener("click", function(){ set(false); }); });
 })();
+
+/* アクセス計測：申込・問い合わせボタンが押されたら、種類（trial／join／contact）と体験日をアナリティクスに送る（2026-10-15） */
+document.addEventListener("click", function(e){
+  var a = e.target.closest && e.target.closest("a[data-form]");
+  if (!a || typeof gtag !== "function") return;
+  var m = decodeURIComponent(a.href).match(/】(\d+\/\d+)/);
+  var sec = a.closest("section");
+  gtag("event", "form_click", { form_type: a.getAttribute("data-form"), trial_date: m ? m[1] : "", place: sec && sec.id ? sec.id : (a.closest(".mcta") ? "sticky" : "other") });
+});
 
 /* フッターの年：自動で今年に（JSが動かないときは2026） */
 document.getElementById("cy").textContent = new Date().getFullYear();
