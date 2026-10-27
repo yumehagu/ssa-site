@@ -469,6 +469,8 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
 .adates input,.f-check input{margin-top:.3em;accent-color:var(--kick);flex:0 0 auto;width:18px;height:18px}
 .adates small{display:block;color:var(--muted);font-size:.82rem}
 .adates.picked .grp,.adates.picked label:not(:has(input:checked)){display:none}
+.apply .ahint{font-size:.88rem;color:var(--muted);background:#f4f7f2;border-radius:8px;padding:10px 12px;margin:0}
+.apply select option:disabled{color:#b5bdb3}
 .achange{margin-top:8px;background:none;border:0;padding:4px 0;font:inherit;font-size:.9rem;font-weight:700;color:var(--kick-dark);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 .f-check{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;line-height:1.6;cursor:pointer}
 .f-err{color:#b3261e;font-weight:700;font-size:.92rem}
@@ -810,18 +812,19 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       <p class="apply-lead">このページで、1分ほどで申し込めます。お申し込み後、3日以内に ssa@yumehagu.net よりメールでご連絡いたします。</p>
       <noscript><p class="f-err">このお申し込み欄はJavaScriptを使います。<a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform">体験申込フォーム</a>からお申し込みください。</p></noscript>
       <form id="apply-form" novalidate>
-        <fieldset>
-          <legend>参加を希望する日程<span class="req">必須</span></legend>
-          <div class="adates" id="apply-dates"></div>
-          <button type="button" class="achange" id="apply-change" hidden>ほかの日程を選ぶ</button>
-        </fieldset>
-        <label class="f"><span>お子さまのお名前<span class="req">必須</span></span><input type="text" name="name" autocomplete="name" required></label>
-        <label class="f"><span>学年<span class="req">必須</span></span>
+        <label class="f"><span>お子さまの学年<span class="req">必須</span></span>
           <select name="grade" required>
             <option value="">選択してください</option>
             <option>小学2年生</option><option>小学3年生</option><option>小学4年生</option><option>小学5年生</option><option>小学6年生</option>
             <option>中学1年生</option><option>中学2年生</option><option>中学3年生</option>
           </select></label>
+        <fieldset>
+          <legend>参加を希望する日程<span class="req">必須</span></legend>
+          <p class="ahint" id="apply-hint">学年を選ぶと、参加できる日程が表示されます。</p>
+          <div class="adates" id="apply-dates"></div>
+          <button type="button" class="achange" id="apply-change" hidden>ほかの日程を選ぶ</button>
+        </fieldset>
+        <label class="f"><span>お子さまのお名前<span class="req">必須</span></span><input type="text" name="name" autocomplete="name" required></label>
         <label class="f"><span>電話番号<span class="req">必須</span></span><input type="tel" name="tel" autocomplete="tel" inputmode="tel" required></label>
         <label class="f"><span>メールアドレス<span class="req">必須</span></span><input type="email" name="email" autocomplete="email" required></label>
         <label class="f"><span>所属チーム<span class="opt">任意</span></span><input type="text" name="team"></label>
@@ -919,31 +922,66 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
   var ad = document.getElementById("apply-dates");
   var af = document.getElementById("apply-form");
   if (ad && af) {
+    // 第18版：学年を先に選び、その学年が参加できる日程だけを表示する（U15の「中1・2のみ」の回は中3には出さない）
+    var GRADE_CLS = { "小学2年生":"U10", "小学3年生":"U10", "小学4年生":"U10", "小学5年生":"U12", "小学6年生":"U12", "中学1年生":"U15", "中学2年生":"U15", "中学3年生":"U15" };
+    function canJoin(grade, cls, note){
+      if (GRADE_CLS[grade] !== cls) return false;
+      return !(note && note.indexOf("中1・2") >= 0 && grade === "中学3年生");
+    }
     var ah = "";
     akita.classes.forEach(function(c){
-      var list = upcoming(c.name);
-      if (!list.length) return;
-      ah += '<p class="grp">' + esc(c.target.replace("小", "小学").replace("中", "中学")) + '年生（' + esc(c.name) + 'クラス）</p>';
-      list.forEach(function(x){
-        ah += '<label><input type="radio" name="date" value="' + esc(x.form) + '"><span>' + md(x) + ' ' + esc(x.time) +
+      upcoming(c.name).forEach(function(x){
+        ah += '<label data-cls="' + esc(c.name) + '" data-note="' + esc(x.note || "") + '" hidden><input type="radio" name="date" value="' + esc(x.form) + '"><span>' + md(x) + ' ' + esc(x.time) +
           '<small>' + esc(x.venue) + (x.note ? '・' + esc(x.note.replace("のみ", "年生のみ")) : '') + '</small></span></label>';
       });
     });
-    ah += '<label><input type="radio" name="date" value="' + esc(OTHER) + '"><span>希望の日程がない<small>大仙市会場・掲載日程以外をご希望の方。ご希望を下の「ご質問・ご希望」にお書きください</small></span></label>';
+    ah += '<label data-cls="*" hidden><input type="radio" name="date" value="' + esc(OTHER) + '"><span>希望の日程がない<small>大仙市会場・掲載日程以外をご希望の方。ご希望を下の「ご質問・ご希望」にお書きください</small></span></label>';
     ad.innerHTML = ah;
 
-    // ボタンから来たときは選んだ日程だけを表示して、すぐ名前の欄へ進めるようにする（「ほかの日程を選ぶ」で全部に戻す）
     var chg = document.getElementById("apply-change");
-    function pick(v){
-      Array.prototype.forEach.call(af.querySelectorAll('input[name="date"]'), function(r){ r.checked = (r.value === v); });
-      ad.classList.add("picked"); chg.hidden = false;
+    var hint = document.getElementById("apply-hint");
+    var gsel = af.elements.grade;
+    var labels = ad.querySelectorAll("label");
+    // 学年に合わせて日程を出し分ける。選んでいた日程が出なくなったら、選択を外す
+    function filter(){
+      var g = gsel.value;
+      hint.hidden = !!g || ad.classList.contains("picked");
+      Array.prototype.forEach.call(labels, function(l){
+        var ok = !!g && (l.getAttribute("data-cls") === "*" || canJoin(g, l.getAttribute("data-cls"), l.getAttribute("data-note")));
+        l.hidden = !ok && !(ad.classList.contains("picked") && l.querySelector("input").checked);
+        if (!ok && !ad.classList.contains("picked")) l.querySelector("input").checked = false;
+      });
     }
-    chg.addEventListener("click", function(){ ad.classList.remove("picked"); chg.hidden = true; });
+    // 学年の選択肢を、選んだ日程に参加できる学年だけにする（cls が空なら全部に戻す）
+    function limitGrades(cls, note){
+      Array.prototype.forEach.call(gsel.options, function(o){
+        o.disabled = !!(o.value && cls && !canJoin(o.value, cls, note));
+      });
+      if (gsel.selectedOptions[0] && gsel.selectedOptions[0].disabled) gsel.value = "";
+    }
+    gsel.addEventListener("change", filter);
+    // ボタンから来たときは選んだ日程だけを表示して、すぐ次の欄へ進めるようにする（「ほかの日程を選ぶ」で学年の日程に戻す）
+    function pick(v){
+      var hit = null;
+      Array.prototype.forEach.call(labels, function(l){
+        var r = l.querySelector("input");
+        r.checked = (r.value === v);
+        if (r.checked) hit = l;
+      });
+      ad.classList.add("picked"); chg.hidden = false;
+      limitGrades(hit && hit.getAttribute("data-cls") !== "*" ? hit.getAttribute("data-cls") : "", hit ? hit.getAttribute("data-note") : "");
+      filter();
+    }
+    chg.addEventListener("click", function(){
+      ad.classList.remove("picked"); chg.hidden = true;
+      limitGrades("", ""); filter();
+    });
     document.addEventListener("click", function(e){
       var a = e.target.closest && e.target.closest(".js-pick, .js-trial-other");
       if (!a) return;
       pick(a.classList.contains("js-pick") ? a.getAttribute("data-pick") : OTHER);
     });
+    filter();
 
     // 送信先：Apps Script（SSA フォーム・申込通知）のウェブアプリ。フォーム①に登録できたかどうかを返す
     var API = "https://script.google.com/macros/s/AKfycbysiQz1iZ7EoZp9gsUfoUwQxybz8vROnVQnUJDycAXjrw9li_2rassog04zWrguDuyQ/exec";
@@ -959,9 +997,9 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       err.hidden = true;
       var f = af.elements;
       var date = af.querySelector('input[name="date"]:checked');
+      if (!f.grade.value) return fail("お子さまの学年を選んでください。");
       if (!date) return fail("参加を希望する日程を選んでください。");
       if (!f.name.value.trim()) return fail("お子さまのお名前を入力してください。");
-      if (!f.grade.value) return fail("学年を選んでください。");
       if (!f.tel.value.trim()) return fail("電話番号を入力してください。");
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) return fail("メールアドレスを正しく入力してください。");
       if (!f.photo.checked) return fail("写真・動画の広報利用への同意にチェックを入れてください。");
