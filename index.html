@@ -447,6 +447,47 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
 }
 @media (max-width:760px){.tcard{padding:16px 16px 4px}.tdates .when{font-size:1.3rem}}
 
+/* ---- 第17版：無料体験をページ内で申し込む（旧HPと同じ1ページ完結。送信先は今のGoogleフォーム・2026-10-27） ---- */
+.apply{margin-top:32px;background:#fff;border:2px solid var(--kick);border-radius:var(--radius);padding:26px 28px;max-width:760px;scroll-margin-top:84px}
+.apply .h3{font-size:1.3rem}
+.apply-lead{margin-top:6px;color:var(--muted);font-size:.92rem}
+.apply form{margin-top:18px;display:grid;gap:16px}
+.apply [hidden]{display:none}
+.apply fieldset{border:0;padding:0;margin:0;min-width:0}
+.apply legend,.apply .f > span:first-child{display:block;font-weight:700;font-size:.95rem;margin-bottom:6px}
+.apply .req,.apply .opt{display:inline-block;margin-left:6px;font-size:.72rem;font-weight:700;border-radius:4px;padding:1px 6px;vertical-align:2px}
+.apply .req{background:var(--kick);color:#fff}
+.apply .opt{background:#eef2ec;color:var(--muted)}
+.apply .f{display:block}
+.apply input[type=text],.apply input[type=tel],.apply input[type=email],.apply select,.apply textarea{width:100%;font:inherit;font-size:16px;padding:11px 12px;border:1px solid #b9c6b5;border-radius:8px;background:#fff;color:var(--ink)}
+.apply textarea{resize:vertical}
+.apply input:focus,.apply select:focus,.apply textarea:focus{outline:3px solid rgba(232,96,10,.35);border-color:var(--kick)}
+.adates{display:grid;gap:8px}
+.adates .grp{font-size:.8rem;font-weight:700;color:var(--note);margin-top:6px}
+.adates label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--rule);border-radius:8px;padding:10px 12px;cursor:pointer;line-height:1.5}
+.adates label:has(input:checked){border-color:var(--kick);background:#fdf0e6}
+.adates input,.f-check input{margin-top:.3em;accent-color:var(--kick);flex:0 0 auto;width:18px;height:18px}
+.adates small{display:block;color:var(--muted);font-size:.82rem}
+.adates.picked .grp,.adates.picked label:not(:has(input:checked)){display:none}
+.achange{margin-top:8px;background:none;border:0;padding:4px 0;font:inherit;font-size:.9rem;font-weight:700;color:var(--kick-dark);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.f-check{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;line-height:1.6;cursor:pointer}
+.f-err{color:#b3261e;font-weight:700;font-size:.92rem}
+.apply .btn[type=submit]{width:100%;min-height:54px;font-size:1.05rem;border:0;cursor:pointer}
+.apply .btn[disabled]{opacity:.6;cursor:wait}
+.apply-done{margin-top:14px;line-height:1.8}
+.apply-done .h3{color:var(--turf)}
+@media (max-width:760px){.apply{padding:20px 16px;margin-top:24px}}
+/* 第17版：お申し込み欄はページ最後（写真の上）に置く。暗い背景の上なので文字色を戻す */
+.final .apply{margin-top:4px;width:100%;color:var(--ink);border-color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.final .apply p{color:var(--muted);line-height:1.75}
+.final .apply .h3,.final .apply .apply-done p{color:var(--ink)}
+.final .apply .apply-done .h3{color:var(--turf)}
+.final .apply .note{color:var(--note)}
+.final .apply .f-err{color:#b3261e}
+.final .apply .tlink{color:var(--kick-dark)}
+.apply .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.mcta.away{display:none}
+
 /* 第10版：トップの帯をスマホでも3つ1行に（幅320px級の小さい端末だけ2行に折り返す） */
 @media (max-width:760px){
   .facts dl{grid-template-columns:auto auto 1fr;column-gap:14px}
@@ -520,8 +561,8 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     <div class="trial-grid" id="trial-grid"></div>
     <noscript><p class="note">日程は、体験申込フォームでご確認ください。</p></noscript>
     <div class="trial-foot">
-      <p><a class="tlink" id="trial-other" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">掲載日程以外での体験をご希望の方も、お気軽にご相談ください。</a></p>
-      <p class="note">大仙市会場（月曜）は現在満席ですが、無料体験のお申し込みは受け付けています。体験をご希望の方は、上のリンクからお気軽にお申し込みください。<br>参加可能な日程ができ次第、こちらからご案内いたします。</p>
+      <p><a class="tlink js-trial-other" id="trial-other" href="#apply" data-form="trial">掲載日程以外での体験をご希望の方も、お気軽にご相談ください。</a></p>
+      <p class="note">大仙市会場（月曜）は現在満席ですが、無料体験のお申し込みは受け付けています。体験をご希望の方は、ページ下のお申し込み欄で「希望の日程がない」を選んでお申し込みください。<br>参加可能な日程ができ次第、こちらからご案内いたします。</p>
     </div>
   </div>
 </section>
@@ -656,10 +697,10 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     </div>
     <div class="board-notes">
       <p>※会場の都合により、土・日・祝日に開催する場合があります。</p>
-      <p>※キャンセル待ちのクラスも、<a class="js-trial-other" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial" style="color:#ff9d5c">無料体験のお申し込み</a>を受け付けています。参加可能な日程が決まり次第、ご案内します。</p>
+      <p>※キャンセル待ちのクラスも、<a class="js-trial-other" href="#apply" data-form="trial" style="color:#ff9d5c">無料体験のお申し込み</a>を受け付けています。参加可能な日程が決まり次第、ご案内します。</p>
       <p>※入会をご希望の方は、<a href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join" style="color:#ff9d5c">フォーム</a>からお申し込みください。空き状況を確認のうえ、ご案内します。</p>
     </div>
-    <div class="sec-cta"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a></div>
+    <div class="sec-cta"><a class="btn btn-primary" href="#apply" data-form="trial">体験に申し込む</a></div>
   </div>
 </section>
 
@@ -721,13 +762,13 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       <p class="lead">実際のトレーニングをお子さま自身が体験してから、その後のことを一緒に考えていただけます。</p>
     </div>
     <ol class="steps">
-      <li class="step"><span class="dot">01</span><h3 class="h3">無料体験に申し込む</h3><p><a href="#trial" style="color:var(--kick-dark);font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px">ページ上部の「次回の無料体験」</a>から参加したい日を選び、申し込みフォームを送信してください。全3回でじっくり体験できる継続体験（6,600円）もご用意しています。</p></li>
+      <li class="step"><span class="dot">01</span><h3 class="h3">無料体験に申し込む</h3><p><a href="#trial" style="color:var(--kick-dark);font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px">ページ上部の「次回の無料体験」</a>で参加したい日を選び、ページ最後のお申し込み欄から送信してください。全3回でじっくり体験できる継続体験（6,600円）もご用意しています。</p></li>
       <li class="step"><span class="dot">02</span><h3 class="h3">実際のスクールに参加</h3><p>受付と簡単なヒアリングのあと、トレーニングに参加します。</p></li>
       <li class="step"><span class="dot">03</span><h3 class="h3">体験後にご案内</h3><p>ご質問にお答えし、クラスや曜日についてご案内します。</p></li>
       <li class="step"><span class="dot">04</span><h3 class="h3">入会</h3><p>ご希望の方は、入会のお手続きをご案内します。定員制のため先着順となります。</p><a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join">入会を申し込む</a></li>
     </ol>
     <p class="assure"><span><span class="nw">体験後の入会を</span><span class="nw">無理におすすめすることはありません。</span></span></p>
-    <div class="sec-cta"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a></div>
+    <div class="sec-cta"><a class="btn btn-primary" href="#apply" data-form="trial">体験に申し込む</a></div>
   </div>
 </section>
 
@@ -764,8 +805,37 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
   <div class="wrap">
     <h2 id="final-title">まずは、無料体験へ。</h2>
     <p>実際のトレーニングを通して、スクールの指導や雰囲気を体験してください。</p>
-    <div class="ctas">
-      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
+    <div class="apply" id="apply">
+      <h3 class="h3">無料体験のお申し込み</h3>
+      <p class="apply-lead">このページで、1分ほどで申し込めます。お申し込み後、3日以内に ssa@yumehagu.net よりメールでご連絡いたします。</p>
+      <noscript><p class="f-err">このお申し込み欄はJavaScriptを使います。<a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform">体験申込フォーム</a>からお申し込みください。</p></noscript>
+      <form id="apply-form" novalidate>
+        <fieldset>
+          <legend>参加を希望する日程<span class="req">必須</span></legend>
+          <div class="adates" id="apply-dates"></div>
+          <button type="button" class="achange" id="apply-change" hidden>ほかの日程を選ぶ</button>
+        </fieldset>
+        <label class="f"><span>お子さまのお名前<span class="req">必須</span></span><input type="text" name="name" autocomplete="name" required></label>
+        <label class="f"><span>学年<span class="req">必須</span></span>
+          <select name="grade" required>
+            <option value="">選択してください</option>
+            <option>小学2年生</option><option>小学3年生</option><option>小学4年生</option><option>小学5年生</option><option>小学6年生</option>
+            <option>中学1年生</option><option>中学2年生</option><option>中学3年生</option>
+          </select></label>
+        <label class="f"><span>電話番号<span class="req">必須</span></span><input type="tel" name="tel" autocomplete="tel" inputmode="tel" required></label>
+        <label class="f"><span>メールアドレス<span class="req">必須</span></span><input type="email" name="email" autocomplete="email" required></label>
+        <label class="f"><span>所属チーム<span class="opt">任意</span></span><input type="text" name="team"></label>
+        <label class="f"><span>ご質問・ご希望<span class="opt">任意</span></span><textarea name="msg" rows="3" placeholder="「希望の日程がない」を選んだ方は、ご希望の曜日などをお書きください"></textarea></label>
+        <label class="hp" aria-hidden="true">ウェブサイト<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        <label class="f-check"><input type="checkbox" name="photo" required><span>写真・動画が広報に使用される場合があることに同意します<span class="req">必須</span></span></label>
+        <p class="f-err" id="apply-err" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">この内容で申し込む</button>
+        <p class="note">※無理な勧誘や即入会のご案内は行っていません。ご入力いただいた個人情報は、お申し込みへのご連絡と当スクールのご案内のみに使用します。<br>※継続体験（全3回・6,600円）・入会のお申し込みは<a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="join">こちらのフォーム</a>から。</p>
+      </form>
+      <div class="apply-done" id="apply-done" hidden tabindex="-1">
+        <p class="h3">お申し込みを受け付けました。</p>
+        <p>ありがとうございます。内容を確認のうえ、3日以内に ssa@yumehagu.net よりメールでご連絡いたします。<br>3日以内にメールが届かない場合は、迷惑メールフォルダをご確認のうえ、お手数ですが ssa@yumehagu.net まで再度ご連絡ください。</p>
+      </div>
     </div>
     <a class="tlink" href="#trial">無料体験の日程を見る</a>
   </div>
@@ -787,7 +857,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
 </footer>
 
 <div class="mcta" aria-label="申し込み">
-  <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="trial">体験に申し込む</a>
+  <a class="btn btn-primary" href="#apply" data-form="trial">体験に申し込む</a>
   <a class="btn btn-secondary btn-join" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform?usp=pp_url&amp;entry.1278701996=%E5%85%A5%E4%BC%9A%E7%94%B3%E8%BE%BC" target="_blank" rel="noopener" data-form="join">入会申込</a>
 </div>
 
@@ -831,10 +901,10 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
         html += '<ul class="tdates">';
         list.forEach(function(x){
           var d = ymd(x.date);
-          var url = FORM + "?usp=pp_url" + KIND + "&entry.304814716=" + encodeURIComponent(x.form);
+          // 第17版：ボタンは下のお申し込み欄へ移動し、その日程を選んだ状態にする
           html += '<li><span class="when">' + (d.getMonth() + 1) + '/' + d.getDate() + '<span class="wd">（' + WD[d.getDay()] + '）</span></span>' +
             '<span class="where">' + esc(x.time) + '</span>' +
-            '<a class="btn btn-primary" href="' + url + '" target="_blank" rel="noopener" data-form="trial">この日で申し込む</a>' +
+            '<a class="btn btn-primary js-pick" href="#apply" data-form="trial" data-md="' + md(x).replace(/（.*/, "") + '" data-pick="' + esc(x.form) + '">この日で申し込む</a>' +
             '<span class="vn">' + esc(x.venue) + '</span></li>';
         });
         html += '</ul>';
@@ -842,9 +912,82 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       html += '</div>';
     });
     tg.innerHTML = html;
-    // 「掲載日程以外の体験」「満員のクラスでの体験」のリンクは、フォームの「希望の日程がない」にチェックを入れて開く
-    var otherUrl = FORM + "?usp=pp_url" + KIND + "&entry.304814716=" + encodeURIComponent("希望の日程がない（ご希望を最後の欄にお書きください）");
-    document.querySelectorAll("#trial-other, .js-trial-other").forEach(function (a) { a.href = otherUrl; });
+  }
+
+  /* 第17版：ページ内の申込フォーム。送信先は今のGoogleフォーム（体験・入会申込）なので、ssa@ への通知・回答一覧・日程の自動同期はそのまま使える */
+  var OTHER = "希望の日程がない（ご希望を最後の欄にお書きください）";
+  var ad = document.getElementById("apply-dates");
+  var af = document.getElementById("apply-form");
+  if (ad && af) {
+    var ah = "";
+    akita.classes.forEach(function(c){
+      var list = upcoming(c.name);
+      if (!list.length) return;
+      ah += '<p class="grp">' + esc(c.target.replace("小", "小学").replace("中", "中学")) + '年生（' + esc(c.name) + 'クラス）</p>';
+      list.forEach(function(x){
+        ah += '<label><input type="radio" name="date" value="' + esc(x.form) + '"><span>' + md(x) + ' ' + esc(x.time) +
+          '<small>' + esc(x.venue) + (x.note ? '・' + esc(x.note.replace("のみ", "年生のみ")) : '') + '</small></span></label>';
+      });
+    });
+    ah += '<label><input type="radio" name="date" value="' + esc(OTHER) + '"><span>希望の日程がない<small>大仙市会場・掲載日程以外をご希望の方。ご希望を下の「ご質問・ご希望」にお書きください</small></span></label>';
+    ad.innerHTML = ah;
+
+    // ボタンから来たときは選んだ日程だけを表示して、すぐ名前の欄へ進めるようにする（「ほかの日程を選ぶ」で全部に戻す）
+    var chg = document.getElementById("apply-change");
+    function pick(v){
+      Array.prototype.forEach.call(af.querySelectorAll('input[name="date"]'), function(r){ r.checked = (r.value === v); });
+      ad.classList.add("picked"); chg.hidden = false;
+    }
+    chg.addEventListener("click", function(){ ad.classList.remove("picked"); chg.hidden = true; });
+    document.addEventListener("click", function(e){
+      var a = e.target.closest && e.target.closest(".js-pick, .js-trial-other");
+      if (!a) return;
+      pick(a.classList.contains("js-pick") ? a.getAttribute("data-pick") : OTHER);
+    });
+
+    // 送信先：Apps Script（SSA フォーム・申込通知）のウェブアプリ。フォーム①に登録できたかどうかを返す
+    var API = "https://script.google.com/macros/s/AKfycbysiQz1iZ7EoZp9gsUfoUwQxybz8vROnVQnUJDycAXjrw9li_2rassog04zWrguDuyQ/exec";
+    var err = document.getElementById("apply-err");
+    function fail(msg){ err.textContent = msg; err.hidden = false; }
+    // スマホ下部の固定ボタンは、お申し込み欄が見えている間は隠す（入力欄に重ならないように）
+    var mcta = document.querySelector(".mcta");
+    if (mcta && "IntersectionObserver" in window) {
+      new IntersectionObserver(function(es){ mcta.classList.toggle("away", es[0].isIntersecting); }).observe(document.getElementById("apply"));
+    }
+    af.addEventListener("submit", function(e){
+      e.preventDefault();
+      err.hidden = true;
+      var f = af.elements;
+      var date = af.querySelector('input[name="date"]:checked');
+      if (!date) return fail("参加を希望する日程を選んでください。");
+      if (!f.name.value.trim()) return fail("お子さまのお名前を入力してください。");
+      if (!f.grade.value) return fail("学年を選んでください。");
+      if (!f.tel.value.trim()) return fail("電話番号を入力してください。");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) return fail("メールアドレスを正しく入力してください。");
+      if (!f.photo.checked) return fail("写真・動画の広報利用への同意にチェックを入れてください。");
+      var body = JSON.stringify({
+        date: date.value, name: f.name.value.trim(), grade: f.grade.value, tel: f.tel.value.trim(),
+        email: f.email.value.trim(), team: f.team.value.trim(), msg: f.msg.value.trim(),
+        photo: f.photo.checked, website: f.website.value
+      });
+      var btn = af.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = "送信中…";
+      // Content-Type を付けない（text/plain）ことで、Apps Script にそのまま届き、結果も読める
+      fetch(API, { method: "POST", body: body }).then(function(res){ return res.json(); }).then(function(r){
+        if (!r || !r.ok) throw new Error(r && r.error || "ng");
+        if (typeof gtag === "function") gtag("event", "trial_submit", { trial_date: (date.value.match(/】(\d+\/\d+)/) || [,"none"])[1] });
+        af.hidden = true;
+        var done = document.getElementById("apply-done");
+        done.hidden = false; done.focus();
+      }).catch(function(){
+        // 登録できなかったときは、入力内容を消さずに、今のGoogleフォームでも申し込めるようにする（取りこぼさない）
+        btn.disabled = false; btn.textContent = "この内容で申し込む";
+        if (typeof gtag === "function") gtag("event", "trial_submit_error");
+        var url = FORM + "?usp=pp_url" + KIND + "&entry.304814716=" + encodeURIComponent(date.value);
+        err.innerHTML = '申し訳ありません。送信できませんでした。もう一度お試しいただくか、<a class="tlink" href="' + url + '" target="_blank" rel="noopener">こちらのフォーム</a>からお申し込みください。';
+        err.hidden = false;
+      });
+    });
   }
 
   var cards = "";
@@ -881,7 +1024,7 @@ document.addEventListener("click", function(e){
   if (!a || typeof gtag !== "function") return;
   var m = decodeURIComponent(a.href).match(/】(\d+\/\d+)/);
   var sec = a.closest("section");
-  gtag("event", "form_click", { form_type: a.getAttribute("data-form"), trial_date: m ? m[1] : "", place: sec && sec.id ? sec.id : (a.closest(".mcta") ? "sticky" : "other") });
+  gtag("event", "form_click", { form_type: a.getAttribute("data-form"), trial_date: a.getAttribute("data-md") || (m ? m[1] : ""), place: sec && sec.id ? sec.id : (a.closest(".mcta") ? "sticky" : "other") });
 });
 
 /* フッターの年：自動で今年に（JSが動かないときは2026） */
