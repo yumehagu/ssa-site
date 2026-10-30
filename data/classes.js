@@ -30,7 +30,7 @@ window.SSA_CLASSES = {
   venues: [
     {
       name: "秋田市会場",
-      note: "主な会場：新屋運動広場・県営トレーニングセンター・シルバーエリア ほか",
+      note: "主な会場：新屋運動広場・県営トレーニングセンター・スカイドーム ほか",
       classes: [
         { name: "U10", target: "小2〜4", capacity: 14, slots: [
           { day: "水", time: "17:10–18:10", status: "ok" },
