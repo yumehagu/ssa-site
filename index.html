@@ -830,7 +830,6 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
         <label class="f"><span>所属チーム<span class="opt">任意</span></span><input type="text" name="team"></label>
         <label class="f"><span>ご質問・ご希望<span class="opt">任意</span></span><textarea name="msg" rows="3" placeholder="「希望の日程がない」を選んだ方は、ご希望の曜日などをお書きください"></textarea></label>
         <label class="hp" aria-hidden="true">ウェブサイト<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-        <label class="f-check"><input type="checkbox" name="photo" required><span>写真・動画が広報に使用される場合があることに同意します<span class="req">必須</span></span></label>
         <p class="f-err" id="apply-err" role="alert" hidden></p>
         <button class="btn btn-primary" type="submit">この内容で申し込む</button>
         <p class="note">※無理な勧誘や即入会のご案内は行っていません。ご入力いただいた個人情報は、お申し込みへのご連絡と当スクールのご案内のみに使用します。<br>※継続体験（全3回・6,600円）・入会のお申し込みは<a class="tlink" href="https://docs.google.com/forms/d/e/1FAIpQLSfuQLN1HCh2mUueInz_qqiqcFqmonLKYVqOBwOnq_yvpcfB2Q/viewform" target="_blank" rel="noopener" data-form="join">こちらのフォーム</a>から。</p>
@@ -1008,11 +1007,10 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       if (!f.name.value.trim()) return fail("お子さまのお名前を入力してください。");
       if (!f.tel.value.trim()) return fail("電話番号を入力してください。");
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value.trim())) return fail("メールアドレスを正しく入力してください。");
-      if (!f.photo.checked) return fail("写真・動画の広報利用への同意にチェックを入れてください。");
       var body = JSON.stringify({
         date: date.value, name: f.name.value.trim(), grade: f.grade.value, tel: f.tel.value.trim(),
         email: f.email.value.trim(), team: f.team.value.trim(), msg: f.msg.value.trim(),
-        photo: f.photo.checked, website: f.website.value
+        website: f.website.value
       });
       var btn = af.querySelector('button[type="submit"]');
       btn.disabled = true; btn.textContent = "送信中…";
