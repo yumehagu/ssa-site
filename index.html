@@ -786,6 +786,7 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
       <details><summary>体験には何が必要ですか？</summary><p>サッカーができる服装、シューズ（会場により異なります）、サッカーボール（小学生4号・中学生5号）、すね当て、飲み物、タオルをご用意ください。</p></details>
       <details><summary>欠席した場合、振替はできますか？</summary><p>はい。自己都合の欠席、スクール都合の中止のどちらも、可能な範囲で振替に対応しています。</p></details>
       <details><summary>月の途中からでも入会できますか？</summary><p>はい。月の途中からでもご入会いただけます。なお、すでに終了しているトレーニング分は、後日、振替練習で調整します。</p></details>
+      <details><summary>冬の間は、どこで開催しますか？</summary><p>冬季は屋内施設で開催します。これまで、秋田市会場ではスカイドーム・県営トレーニングセンター・西部体育館・シルバーエリア・ユースパル、大仙市会場では嶽ドーム・神岡体育館で開催してきました。会場は、前月の初旬を目途に決定しご案内しております。</p></details>
     </div>
   </div>
 </section>
@@ -991,6 +992,12 @@ footer.site .links{display:flex;flex-wrap:wrap;gap:6px 18px}
     if (mcta && "IntersectionObserver" in window) {
       new IntersectionObserver(function(es){ mcta.classList.toggle("away", es[0].isIntersecting); }).observe(document.getElementById("apply"));
     }
+    // 2026-11-14（代表承認）：申込欄で最初に操作したときを1回だけ記録（ボタン → 入力開始 → 送信 のどこで止まっているかを見るため。入力内容は送らない）
+    var started = false;
+    af.addEventListener("focusin", function(){
+      if (started) return; started = true;
+      if (typeof gtag === "function") gtag("event", "trial_form_start");
+    });
     af.addEventListener("submit", function(e){
       e.preventDefault();
       err.hidden = true;
